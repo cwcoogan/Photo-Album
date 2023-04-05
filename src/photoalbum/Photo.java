@@ -1,5 +1,10 @@
 package photoalbum;
 
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.time.*;
+
 public class Photo implements IPhoto{
   private String description;
   private String timestamp;
@@ -19,13 +24,29 @@ public class Photo implements IPhoto{
   }
 
   @Override
+  public IShape addShape() {
+    return null;
+  }
+
+  @Override
+  public IShape removeShape() {
+    return null;
+  }
+
+  @Override
+  public ArrayList<String> photoAlbum() {
+    return null;
+  }
+
+  @Override
   public String description() {
     return this.description;
   }
 
   @Override
   public String timestamp() {
-    return this.timestamp;
+
+    String start = Instant
   }
 
   @Override
