@@ -27,12 +27,18 @@ public class Photo implements IPhoto {
   }
 
   @Override
-  public void addShape(IShape shape) {
+  public void addShape(IShape shape) throws IllegalArgumentException{
+    if (shape == null) {
+      throw new IllegalArgumentException();
+    }
     photoAlbum.add(shape);
   }
 
   @Override
   public void removeShape(IShape shape) {
+    if (shape == null) {
+      throw new IllegalArgumentException();
+    }
     photoAlbum.remove(shape);
   }
 
