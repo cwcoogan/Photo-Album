@@ -1,13 +1,9 @@
 package photoalbum;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface IPhoto {
-  IShape addShape();
-  IShape removeShape();
-  ArrayList<String> photoAlbum();
-  String description();
-  String timestamp();
-  String snapshotID();
-  String name();
+  void addShape(IShape shape);
+  void removeShape(IShape shape);
+  List<IShape> getPhotoAlbum();
 }

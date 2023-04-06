@@ -1,61 +1,31 @@
 package photoalbum;
 
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.time.*;
+import java.util.List;
 
 public class Photo implements IPhoto{
-  private String description;
-  private String timestamp;
-  private String snapshotID;
-  private String name;
+  Command command;
+  private final List<IShape> photoAlbum;
 
-  public Photo(String name, String description, String snapshotID, String timestamp)
-          throws IllegalArgumentException{
-    if (name.isBlank() || name.isBlank()) {
-      throw new IllegalArgumentException();
-    }
-    this.name = name;
-    this.description = description;
-    this.snapshotID = snapshotID;
-    this.timestamp = timestamp;
+  public Photo() {
+    photoAlbum = new ArrayList<>();
+  }
 
+  public void setCommand() {
+    this
   }
 
   @Override
-  public IShape addShape() {
-    return null;
+  public void addShape(IShape shape) {
+    photoAlbum.add(shape);
   }
 
   @Override
-  public IShape removeShape() {
-    return null;
+  public void removeShape(IShape shape) {
+    photoAlbum.remove(shape);
   }
 
-  @Override
-  public ArrayList<String> photoAlbum() {
-    return null;
-  }
-
-  @Override
-  public String description() {
-    return this.description;
-  }
-
-  @Override
-  public String timestamp() {
-
-    String start = Instant
-  }
-
-  @Override
-  public String snapshotID() {
-    return this.snapshotID;
-  }
-
-  @Override
-  public String name() {
-    return this.name;
+  public List<IShape> getPhotoAlbum() {
+    return photoAlbum;
   }
 }

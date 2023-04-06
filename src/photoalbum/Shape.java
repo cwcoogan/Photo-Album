@@ -2,93 +2,76 @@ package photoalbum;
 
 import java.util.Objects;
 
-public class Shape implements IShape {
-  private double location;
-  private double xRadius;
-  private double yRadius;
+public abstract class Shape implements IShape {
+  private double xCoord;
+  private double yCoord;
   private double color;
-  private double height;
   private String name;
   private IShape type;
-  private double width;
 
-  public Shape(IShape type, double location, double xRadius,
-               double yRadius, double color, String name, double height, double width)
+  public Shape(double xCoord, double yCoord, double color, String name)
           throws IllegalArgumentException{
     if (name.isEmpty() || name.isBlank()) {
       throw new IllegalArgumentException();
     }
-    if (type == null) {
-        throw new IllegalArgumentException();
-      }
-      this.type = type;
       this.name = name;
-      this.location = location;
-      this.xRadius = xRadius;
-      this.yRadius = yRadius;
+      this.xCoord = xCoord;
+      this.yCoord = yCoord;
       this.color = color;
-      this.height = height;
-      this.width = width;
+  }
+
+  public void setxCoord(double xCoord) {
+    this.xCoord = xCoord;
+  }
+
+  public void setyCoord(double yCoord) {
+    this.yCoord = yCoord;
+  }
+
+  public void setColor(double color) {
+    this.color = color;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public void setType(IShape type) {
+    this.type = type;
   }
 
   @Override
-  public double location() {
-    return this.location;
+  public double getXCoord() {
+    return this.xCoord;
   }
 
   @Override
-  public double xRadius() {
-    return xRadius;
+  public double getYCoord() {
+    return this.yCoord;
   }
 
   @Override
-  public double yRadius() {
-    return this.yRadius;
-  }
-
-  @Override
-  public double height() {
-    return this.height;
-  }
-
-  @Override
-  public double color() {
+  public double getColor() {
     return this.color;
   }
 
   @Override
-  public IShape type() {
+  public IShape getType() {
     return this.type;
   }
 
   @Override
-  public String name() {
+  public String getName() {
     return this.name;
   }
 
   @Override
-  public double width() {
-    return this.width;
-  }
-
-  @Override
   public String toString() {
-    return "Name: " + name + "\n"
-    + "Type: " + type + "\n"
-            + "location: " + location
-            + "Width: " +  width
-            + "Height" + height
-            + "Color: " + color;
-  }
-
-  // toString for circle
-  @Override
-  public String toString() {
-    return "Name: " + name + "\n"
-            + "Type: " + type + "\n"
-            + "Center: " + "(" + xRadius + "," + yRadius + ")" + "\n"
-            + "Height" + height
-            + "Color: " + color;
+    return "Name: " + getName()
+            + "Type: " + getType()
+            + "Center: " + "(" + xCoord + yCoord + "), "
+            + "X Radius: " + getXCoord() + "Y Radius: " + getYCoord()
+            + "Color: " + getColor();
   }
 
   @Override
@@ -96,13 +79,12 @@ public class Shape implements IShape {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Shape that = (Shape) o;
-    return Objects.equals(name, that.name)
-            && Objects.equals(type, that.type);
+    return Objects.equals(name, that.name);
 
 
   }
   @Override
   public int hashCode() {
-    return Objects.hash(name, type);
+    return Objects.hash(name);
   }
 }
