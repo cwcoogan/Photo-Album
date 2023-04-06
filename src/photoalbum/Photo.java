@@ -14,9 +14,8 @@ public class Photo implements IPhoto{
   public void setCommand(Command command) {
     this.command = command;
   }
-
-  public void executeCommand() {
-    command.execute();
+  public void executeCommand(String arg) {
+    command.execute(arg);
   }
 
   @Override
