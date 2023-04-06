@@ -20,11 +20,11 @@ public abstract class Shape implements IShape {
       this.color = color;
   }
 
-  public void setxCoord(double xCoord) {
+  public void setXCoord(double xCoord) {
     this.xCoord = xCoord;
   }
 
-  public void setyCoord(double yCoord) {
+  public void setYCoord(double yCoord) {
     this.yCoord = yCoord;
   }
 

@@ -2,20 +2,15 @@ package photoalbum;
 
 public class ChangeWidthCommand implements Command{
 
-  private IShape shape;
+  private final Rectangle shape;
 
   public ChangeWidthCommand(IShape shape) {
-    this.shape = shape;
+    this.shape = (Rectangle)shape;
 
   }
 
   @Override
   public void execute(String width) {
-    shape.setWidth(double(width))
-  }
-
-  @Override
-  public void execute() {
-    shape.
+    shape.setWidth(Double.parseDouble(width));
   }
 }

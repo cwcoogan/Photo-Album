@@ -11,8 +11,12 @@ public class Photo implements IPhoto{
     photoAlbum = new ArrayList<>();
   }
 
-  public void setCommand() {
-    this
+  public void setCommand(Command command) {
+    this.command = command;
+  }
+
+  public void executeCommand() {
+    command.execute();
   }
 
   @Override
