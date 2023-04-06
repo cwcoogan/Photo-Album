@@ -25,7 +25,6 @@ public class Snapshot {
     return formattedDateTime;
   }
 
-
   public String snapshotID() {
     Random rand = new Random();
     int randInt = 0;
@@ -35,7 +34,7 @@ public class Snapshot {
 
     LocalDateTime local = LocalDateTime.now();
     // might need to add T before the Hour..
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss" + randInt);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     String formattedDateTime = local.format(formatter);
     String formattedDateTimeWithRandom = formattedDateTime + "." + randInt;
     return formattedDateTimeWithRandom;

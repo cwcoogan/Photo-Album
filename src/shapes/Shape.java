@@ -1,4 +1,4 @@
-package photoalbum;
+package shapes;
 
 import java.util.Objects;
 

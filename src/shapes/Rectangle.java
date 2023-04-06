@@ -1,6 +1,8 @@
-package photoalbum;
+package shapes;
 
-public class Rectangle extends Shape{
+import shapes.Shape;
+
+public class Rectangle extends Shape {
   private double width;
   private double height;
 

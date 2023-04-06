@@ -3,7 +3,10 @@ package photoalbum;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Photo implements IPhoto{
+import commands.Command;
+import shapes.IShape;
+
+public class Photo implements IPhoto {
   Command command;
   private final List<IShape> photoAlbum;
 
@@ -11,11 +14,16 @@ public class Photo implements IPhoto{
     photoAlbum = new ArrayList<>();
   }
 
-  public void setCommand(Command command) {
+
+  public void setCommand(Command command) throws NullPointerException{
+    if (command == null) {
+      throw new NullPointerException();
+    }
     this.command = command;
   }
-  public void executeCommand(String arg) {
-    command.execute(arg);
+
+  public void executeCommand(Command command) {
+    command.execute();
   }
 
   @Override

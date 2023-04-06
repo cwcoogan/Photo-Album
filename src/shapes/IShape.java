@@ -1,4 +1,4 @@
-package photoalbum;
+package shapes;
 
 public interface IShape {
   double getXCoord();
