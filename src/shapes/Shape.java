@@ -67,6 +67,14 @@ public abstract class Shape implements IShape {
     return this.name;
   }
 
+  public double getxCoord() {
+    return xCoord;
+  }
+
+  public double getyCoord() {
+    return yCoord;
+  }
+
   @Override
   public String toString() {
     return "Name: " + getName()

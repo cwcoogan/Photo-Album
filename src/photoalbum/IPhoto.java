@@ -14,4 +14,5 @@ public interface IPhoto {
   void executeCommand(Command command) throws NoSuchFieldException, IllegalAccessException;
   void takeSnapshot(String description);
   Map<Snapshot, String> getHistory();
+
 }

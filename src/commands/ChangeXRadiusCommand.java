@@ -15,6 +15,13 @@ public class ChangeXRadiusCommand implements Command {
     this.xRadius = xRadius;
   }
 
+  public Oval getShape() {
+    return shape;
+  }
+
+  public double getXRadius() {
+    return xRadius;
+  }
 
   @Override
   public void execute() {

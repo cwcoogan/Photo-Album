@@ -6,13 +6,15 @@ import org.junit.Test;
 import java.awt.*;
 
 import commands.ChangeColorCommand;
+import commands.ChangeHeightCommand;
 import commands.ChangeNameCommand;
 import commands.ChangeWidthCommand;
 import commands.ChangeXRadiusCommand;
+import commands.ChangeYRadiusCommand;
+import commands.GetHistoryCommand;
+import commands.TakeSnapshotCommand;
 import exceptions.IllegalShapeTypeException;
 import shapes.IShape;
-import shapes.Oval;
-import shapes.Rectangle;
 import shapes.ShapeFactory;
 
 import static org.junit.Assert.assertEquals;
@@ -100,82 +102,81 @@ public class PhotoTest {
     assertEquals(10, s.getXCoord(), 0.01);
   }
 
+  @Test
+  public void testChangeXRadiusCommand() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape oval = ShapeFactory.createShape(p, "oval", 1, 2, "blue", "newShape", "20 10");
+    ChangeXRadiusCommand c2 = new ChangeXRadiusCommand(oval);
+    c2.setXRadius(50);
+    c2.execute();
+    assertEquals(50, c2.getXRadius(), 0.01);
+  }
 
+  @Test
+  public void testChangeYRadiusCommand() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape oval = ShapeFactory.createShape(p, "oval", 1, 2, "blue", "newShape", "20 10");
+    ChangeYRadiusCommand c2 = new ChangeYRadiusCommand(oval);
+    c2.setRadiusY(120);
+    c2.execute();
+    assertEquals(120, c2.getRadius(), 0.01);
+  }
+
+  @Test
+  public void testChangeWidthCommand() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape rect = ShapeFactory.createShape(p, "rectangle", 1, 2, "blue", "newShape", "20 10");
+    ChangeWidthCommand c2 = new ChangeWidthCommand(rect);
+    c2.setWidth(25);
+    c2.execute();
+    assertEquals(25, c2.getWidth(), 0.01);
+  }
+
+  @Test
+  public void testChangeHeightCommand() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape rect = ShapeFactory.createShape(p, "rectangle", 1, 2, "blue", "newShape", "20 10");
+    ChangeHeightCommand c2 = new ChangeHeightCommand(rect);
+    c2.setHeight(45);
+    c2.execute();
+    assertEquals(45, c2.getHeight(), 0.01);
+  }
+
+  @Test
+  public void takeSnapShotCommand() {
+    TakeSnapshotCommand snap = new TakeSnapshotCommand(p, "thx u");
+    snap.execute();
+    assertEquals(1, p.getPhotoAlbum().size());
+  }
+
+  @Test
+  public void testGetHistoryCommand() {
+    TakeSnapshotCommand snap = new TakeSnapshotCommand(p, "thx u");
+    snap.execute();
+    GetHistoryCommand hist = new GetHistoryCommand(p);
+    hist.execute();
+    assertEquals(1, p.getHistory().size());
+  }
+
+  @Test
+  public void testRemoveShape() {
+    p.removeShape(s);
+    assertEquals(0, p.getPhotoAlbum().size());
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testBadHeight() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape rect = ShapeFactory.createShape(p, "rectangle", 1, 2, "blue", "newShape", "20 10");
+    ChangeHeightCommand c2 = new ChangeHeightCommand(rect);
+    c2.setHeight(-45);
+    c2.execute();
+  }
+
+  @Test (expected = IllegalArgumentException.class)
+  public void testBadWidth() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+    IShape rect = ShapeFactory.createShape(p, "rectangle", 1, 2, "blue", "newShape", "20 10");
+    ChangeWidthCommand c2 = new ChangeWidthCommand(rect);
+    c2.setWidth(-45);
+    c2.execute();
+  }
+
+
+  // test tostring
 }
-//
-//  @Test
-//  public void executeCommand() {
-//    // how to test this?
-//  }
-
-//  @Test
-//  public void testAddShape() {
-//    p.addShape(o);
-//    assertEquals(3, p.getPhotoAlbum().size());
-//  }
-//
-//  @Test
-//  public void testAddMultipleShapes() {
-//    IPhoto photo = new Photo();
-//    IShape oval = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape Rect = new Rectangle(10, 20, 30, "ff", 10, 50);
-//    IShape ov2 = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape ov3 = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape ov4 = new Oval(10, 20, 30, "ff", 10, 50);
-//    photo.addShape(oval);
-//    photo.addShape(Rect);
-//    photo.addShape(ov2);
-//    photo.addShape(ov3);
-//    photo.addShape(ov4);
-//    assertEquals(photo.getPhotoAlbum().size(), 5);
-//  }
-//
-//  @Test
-//  public void testRemoveShape() {
-//    p.removeShape(o);
-//    assertEquals(1, p.getPhotoAlbum().size());
-//  }
-//
-//  @Test
-//  public void testRemoveMultipleShapes() {
-//    IPhoto photo = new Photo();
-//    IShape oval = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape Rect = new Rectangle(10, 20, 30, "ff", 10, 50);
-//    IShape ov2 = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape ov3 = new Oval(10, 20, 30, "ff", 10, 50);
-//    IShape ov4 = new Oval(10, 20, 30, "ff", 10, 50);
-//    photo.addShape(oval);
-//    photo.addShape(Rect);
-//    photo.addShape(ov2);
-//    photo.addShape(ov3);
-//    photo.addShape(ov4);
-//    photo.removeShape(oval);
-//    photo.removeShape(Rect);
-//    photo.removeShape(ov2);
-//    photo.removeShape(ov3);
-//    assertEquals(photo.getPhotoAlbum().size(), 1);
-//  }
-//
-//  @Test
-//  public void testGetPhotoAlbum() {
-//    assertEquals(p.getPhotoAlbum().get(0), o);
-//    assertEquals(p.getPhotoAlbum().get(1), r);
-//    assertEquals(p.getPhotoAlbum().size(), 2);
-//  }
-//
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testAddNullShape() {
-//    p.addShape(null);
-//  }
-//
-//  @Test(expected = IllegalArgumentException.class)
-//  public void testRemoveNullShape() {
-//    p.removeShape(null);
-//  }
-//}
-
-
-
-
-
 

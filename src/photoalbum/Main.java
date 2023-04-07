@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.Map;
 
 import commands.ChangeNameCommand;
+import commands.ChangeXRadiusCommand;
 import commands.ChangeYRadiusCommand;
 import commands.GetHistoryCommand;
 import commands.TakeSnapshotCommand;
@@ -22,6 +23,10 @@ public class Main {
     ChangeNameCommand c2 = new ChangeNameCommand(s);
     c2.setName("hey");
     p.executeCommand(c2); // need to set -> then execute
+    ChangeXRadiusCommand c3 = new ChangeXRadiusCommand(s);
+    c3.setXRadius(50);
+    c3.execute();
+    System.out.println("x radius: " + c3.getXRadius());
 
     TakeSnapshotCommand snap = new TakeSnapshotCommand(p, "thx u");
     snap.execute();

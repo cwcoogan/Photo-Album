@@ -66,6 +66,10 @@ public class Photo implements IPhoto {
     return snapshots;
   }
 
+  public Map<Snapshot, String> getSnapshots() {
+    return snapshots;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

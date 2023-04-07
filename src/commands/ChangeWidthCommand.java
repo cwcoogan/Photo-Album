@@ -17,6 +17,14 @@ public class ChangeWidthCommand implements Command {
     this.width = width;
   }
 
+  public Rectangle getShape() {
+    return shape;
+  }
+
+  public double getWidth() {
+    return width;
+  }
+
   @Override
   public void execute() {
     shape.setWidth(width);

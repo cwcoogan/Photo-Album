@@ -15,6 +15,14 @@ public class ChangeHeightCommand implements Command {
     this.height = height;
   }
 
+  public Rectangle getShape() {
+    return shape;
+  }
+
+  public double getHeight() {
+    return height;
+  }
+
   @Override
   public void execute() {
     shape.setHeight(height);

@@ -15,6 +15,14 @@ public class ChangeYRadiusCommand implements Command {
     this.radius = radius;
   }
 
+  public Oval getShape() {
+    return shape;
+  }
+
+  public double getRadius() {
+    return radius;
+  }
+
   @Override
   public void execute() {
     shape.setRadiusY(radius);

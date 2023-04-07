@@ -8,7 +8,10 @@ public class GetHistoryCommand implements Command{
 
   public GetHistoryCommand(IPhoto photo) {
     this.photo = photo;
+  }
 
+  public IPhoto getPhoto() {
+    return photo;
   }
 
   @Override
