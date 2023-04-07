@@ -1,7 +1,9 @@
 package photoalbum;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import commands.Command;
 import shapes.IShape;
@@ -9,9 +11,13 @@ import shapes.IShape;
 public class Photo implements IPhoto {
   Command command;
   private final List<IShape> photoAlbum;
+  private final Map<Snapshot, String> snapshots;
+
 
   public Photo() {
     photoAlbum = new ArrayList<>();
+    this.snapshots = new HashMap<>();
+
   }
 
 
@@ -25,6 +31,13 @@ public class Photo implements IPhoto {
   public void executeCommand(Command command) {
     command.execute();
   }
+
+  public void takeSnapshot(String description) {
+    Snapshot sn = new Snapshot(description, (Photo) this);
+    snapshots.put(sn, sn.toString());
+  }
+
+
 
   @Override
   public void addShape(IShape shape) throws IllegalArgumentException{
@@ -44,6 +57,13 @@ public class Photo implements IPhoto {
 
   public List<IShape> getPhotoAlbum() {
     return photoAlbum;
+  }
+
+  public Map<Snapshot, String> getHistory() {
+    for (Snapshot each : snapshots.keySet()) {
+      System.out.println(snapshots.get(each));
+    }
+    return snapshots;
   }
 
   @Override

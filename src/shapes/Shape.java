@@ -1,15 +1,16 @@
 package shapes;
 
+import java.awt.*;
 import java.util.Objects;
 
 public abstract class Shape implements IShape {
   private double xCoord;
   private double yCoord;
-  private double color;
+  private Color color;
   private String name;
   private IShape type;
 
-  public Shape(double xCoord, double yCoord, double color, String name)
+  public Shape(double xCoord, double yCoord, Color color, String name)
           throws IllegalArgumentException{
     if (name.isEmpty() || name.isBlank()) {
       throw new IllegalArgumentException();
@@ -20,16 +21,16 @@ public abstract class Shape implements IShape {
       this.color = color;
   }
 
+  public void setColor(String color) {
+    this.color = Color.getColor(color);
+  }
+
   public void setXCoord(double xCoord) {
     this.xCoord = xCoord;
   }
 
   public void setYCoord(double yCoord) {
     this.yCoord = yCoord;
-  }
-
-  public void setColor(double color) {
-    this.color = color;
   }
 
   public void setName(String name) {
@@ -51,7 +52,7 @@ public abstract class Shape implements IShape {
   }
 
   @Override
-  public double getColor() {
+  public Color getColor() {
     return this.color;
   }
 
@@ -68,10 +69,7 @@ public abstract class Shape implements IShape {
   @Override
   public String toString() {
     return "Name: " + getName()
-            + "Type: " + getType()
-            + "Center: " + "(" + xCoord + yCoord + "), "
-            + "X Radius: " + getXCoord() + "Y Radius: " + getYCoord()
-            + "Color: " + getColor();
+            + "\nCenter: " + "(" + xCoord + ", "+ yCoord + ")";
   }
 
   @Override

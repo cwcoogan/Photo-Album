@@ -1,12 +1,14 @@
 package shapes;
 
+import java.awt.*;
+
 public interface IShape {
   double getXCoord();
   double getYCoord();
-  double getColor();
+  Color getColor();
   void setXCoord(double xCoord);
   void setYCoord(double yCoord);
-  void setColor(double color);
+  void setColor(String color);
   void setName(String name);
   void setType(IShape type);
   IShape getType();

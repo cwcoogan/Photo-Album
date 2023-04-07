@@ -1,32 +1,33 @@
 package shapes;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import exceptions.IllegalShapeTypeException;
 import photoalbum.IPhoto;
 
 public class ShapeFactory {
-  IPhoto photoAlbum;
 
-  public ShapeFactory(IPhoto photoAlbum) {
-    this.photoAlbum = photoAlbum;
-  }
-
-  public void createShape(String shapeType, double xCoord,
-                          double yCoord, double color, String name,
-                          String properties) {
+  public static IShape createShape(IPhoto photoAlbum, String shapeType, double xCoord,
+                                          double yCoord, String color, String name,
+                                          String properties) throws IllegalShapeTypeException {
 
     List<String> attributes =  Arrays.stream(properties.split(" ")).toList();
+    IShape shape;
 
-    if (shapeType.equals("oval")) {
-      photoAlbum.addShape(new Oval(xCoord, yCoord, color, name,
-              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1))));
-    } else if (shapeType.equals("rectangle")) {
-      photoAlbum.addShape(new Rectangle(xCoord, yCoord, color, name,
-              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1))));
+    if (shapeType.equalsIgnoreCase("oval")) {
+      shape = new Oval(xCoord, yCoord, Color.getColor(color), name,
+              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1)));
+      photoAlbum.addShape(shape);
+    } else if (shapeType.equalsIgnoreCase("rectangle")) {
+      shape = new Rectangle(xCoord, yCoord, Color.getColor(color), name,
+              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1)));
+      photoAlbum.addShape(shape);
     } else {
-      throw new IllegalArgumentException("Invalid shape type");
+      throw new IllegalShapeTypeException("Invalid shape type");
     }
+    return shape;
   }
 }
