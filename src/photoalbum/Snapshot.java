@@ -13,11 +13,11 @@ public class Snapshot {
   private final String timestamp;
   private final String snapshotID;
   private final String description;
-  private final Photo photo;
+  private final IPhoto photo;
 
 
 
-  public Snapshot(String description, Photo photo) {
+  public Snapshot(String description, IPhoto photo) {
     this.timestamp = timestamp();
     this.snapshotID = snapshotID();
     this.description = description;
@@ -42,6 +42,18 @@ public class Snapshot {
 
   public String getSnapshotID() {
     return snapshotID;
+  }
+
+  public String getTimestamp() {
+    return timestamp;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public IPhoto getPhoto() {
+    return photo;
   }
 
   @Override

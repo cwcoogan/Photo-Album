@@ -37,8 +37,6 @@ public class Photo implements IPhoto {
     snapshots.put(sn, sn.toString());
   }
 
-
-
   @Override
   public void addShape(IShape shape) throws IllegalArgumentException{
     if (shape == null) {

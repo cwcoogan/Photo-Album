@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.awt.*;
+import java.util.Map;
 
 import commands.ChangeColorCommand;
 import commands.ChangeHeightCommand;
@@ -19,19 +20,22 @@ import shapes.ShapeFactory;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 public class PhotoTest {
-  IPhoto p;
+  IPhoto p = new Photo();
   IShape s;
   IShape r;
   ShapeFactory rect;
   ShapeFactory ov;
+  TakeSnapshotCommand snap = new TakeSnapshotCommand(p, "thx u");
 
 
   @Before
   public void setUp() throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
-    p = new Photo();
     s = ShapeFactory.createShape(p, "oval", 1, 2, "blue", "oval", "20 10");
+    p.executeCommand(snap);
+
   }
 
   @Test
@@ -147,8 +151,6 @@ public class PhotoTest {
 
   @Test
   public void testGetHistoryCommand() {
-    TakeSnapshotCommand snap = new TakeSnapshotCommand(p, "thx u");
-    snap.execute();
     GetHistoryCommand hist = new GetHistoryCommand(p);
     hist.execute();
     assertEquals(1, p.getHistory().size());
@@ -176,7 +178,46 @@ public class PhotoTest {
     c2.execute();
   }
 
+  @Test
+  public void testPrintSnapShotID() throws NoSuchFieldException, IllegalAccessException {
+    Map<Snapshot, String> snapshot = p.getHistory();
+    for (Map.Entry<Snapshot, String> entry : snapshot.entrySet()) {
+      assertTrue(entry.getKey().getSnapshotID().contains("2023-04-07"));
+    }
+  }
+    @Test
+    public void testPrintTimeStamp() throws NoSuchFieldException, IllegalAccessException {
+      Map<Snapshot, String> snapshot = p.getHistory();
+      for (Map.Entry<Snapshot, String> entry : snapshot.entrySet()) {
+        assertTrue(entry.getKey().getTimestamp().contains("07-04-2023"));
+      }
+  }
+  @Test
+  public void testGetDescription() {
+    Map<Snapshot, String> snapshot = p.getHistory();
+    for (Map.Entry<Snapshot, String> entry : snapshot.entrySet()) {
+      assertTrue(entry.getKey().getDescription().contains("thx u"));
+    }
+  }
 
-  // test tostring
+  @Test
+  public void testMultipleCommands() throws NoSuchFieldException, IllegalAccessException {
+    ChangeNameCommand c2 = new ChangeNameCommand(s);
+    c2.setName("I am an oval");
+    p.executeCommand(c2);
+    assertEquals("I am an oval", s.getName());
+    ChangeColorCommand c3 = new ChangeColorCommand(s);
+    c3.setColor("red");
+    p.executeCommand(c3);
+    assertEquals(Color.RED, s.getColor());
+    ChangeXRadiusCommand c4 = new ChangeXRadiusCommand(s);
+    c4.setXRadius(50);
+    p.executeCommand(c4);
+    assertEquals(50, c4.getXRadius(), 0.01);
+    ChangeYRadiusCommand c5 = new ChangeYRadiusCommand(s);
+    c5.setRadiusY(120);
+    p.executeCommand(c5);
+    assertEquals(120, c5.getRadius(), 0.01);
+  }
 }
 

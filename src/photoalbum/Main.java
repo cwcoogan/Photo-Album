@@ -33,6 +33,7 @@ public class Main {
 
     GetHistoryCommand hist = new GetHistoryCommand(p);
     hist.execute();
+    System.out.println("test: " + p.getHistory());
 
 
 
