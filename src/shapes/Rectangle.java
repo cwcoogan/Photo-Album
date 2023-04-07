@@ -16,16 +16,40 @@ public class Rectangle extends Shape {
   }
 
   public void setWidth(double width) {
+    if (width < 0) {
+      throw new IllegalArgumentException("Width cannot be negative");
+    }
     this.width = width;
   }
 
   public void setHeight(double height) {
+    if (height < 0) {
+      throw new IllegalArgumentException("Height cannot be negative");
+    }
     this.height = height;
+  }
+
+  public double getWidth() {
+    return width;
+  }
+
+  public double getHeight() {
+    return height;
   }
 
   @Override
 
   public String toString() {
     return  super.toString() + "\nType: " + this.getClass().getSimpleName() + "\n" + "Width: " + this.width + " " +", Height: " + this.height;
+  }
+
+  @Override
+  public double getXRadius() {
+    return 0;
+  }
+
+  @Override
+  public double getYRadius() {
+    return 0;
   }
 }

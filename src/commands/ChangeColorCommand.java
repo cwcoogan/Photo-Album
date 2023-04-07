@@ -16,7 +16,7 @@ public class ChangeColorCommand implements Command {
   }
 
   @Override
-  public void execute() {
+  public void execute() throws NoSuchFieldException, IllegalAccessException {
     shape.setColor(color);
   }
 }

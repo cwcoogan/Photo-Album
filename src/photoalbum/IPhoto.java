@@ -11,7 +11,7 @@ public interface IPhoto {
   void removeShape(IShape shape);
   List<IShape> getPhotoAlbum();
   void setCommand(Command command);
-  void executeCommand(Command command);
+  void executeCommand(Command command) throws NoSuchFieldException, IllegalAccessException;
   void takeSnapshot(String description);
   Map<Snapshot, String> getHistory();
 }

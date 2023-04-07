@@ -28,7 +28,7 @@ public class Photo implements IPhoto {
     this.command = command;
   }
 
-  public void executeCommand(Command command) {
+  public void executeCommand(Command command) throws NoSuchFieldException, IllegalAccessException {
     command.execute();
   }
 

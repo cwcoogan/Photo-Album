@@ -1,6 +1,7 @@
 package shapes;
 
 import java.awt.*;
+import java.util.Arrays;
 import java.util.Objects;
 
 public abstract class Shape implements IShape {
@@ -21,8 +22,8 @@ public abstract class Shape implements IShape {
       this.color = color;
   }
 
-  public void setColor(String color) {
-    this.color = Color.getColor(color);
+  public void setColor(String color) throws NoSuchFieldException, IllegalAccessException {
+    this.color = (Color) Color.class.getField(color).get(null);
   }
 
   public void setXCoord(double xCoord) {
@@ -69,7 +70,8 @@ public abstract class Shape implements IShape {
   @Override
   public String toString() {
     return "Name: " + getName()
-            + "\nCenter: " + "(" + xCoord + ", "+ yCoord + ")";
+            + "\nCenter: " + "(" + xCoord + ", "+ yCoord + ")"
+            + "\nColor: " + "(" + getColor().getBlue() + ", " + getColor().getGreen() + ", " + getColor().getRed() + ")";
   }
 
   @Override

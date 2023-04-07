@@ -15,11 +15,9 @@ import shapes.ShapeFactory;
 
 public class Main {
 
-  public static void main(String[] args) throws IllegalShapeTypeException {
+  public static void main(String[] args) throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
     IPhoto p = new Photo();
-    IShape s = ShapeFactory.createShape(p," ", 1, 2, "blue", "oval", "20 10");
-
-
+    IShape s = ShapeFactory.createShape(p,"oval", 1, 2, "blue", "oval", "20 10");
 
     ChangeNameCommand c2 = new ChangeNameCommand(s);
     c2.setName("hey");
@@ -30,6 +28,9 @@ public class Main {
 
     GetHistoryCommand hist = new GetHistoryCommand(p);
     hist.execute();
+
+
+
 
   }
  }
