@@ -2,6 +2,8 @@ package photoalbum;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Snapshot {
@@ -27,13 +29,13 @@ public class Snapshot {
 
   public String snapshotID() {
     Random rand = new Random();
-    int randInt = 0;
+    StringBuilder randInt = new StringBuilder();
     for (int i = 0; i < 6; i++) {
-      randInt = rand.nextInt(10);
+      randInt.append(rand.nextInt(10));
     }
 
+
     LocalDateTime local = LocalDateTime.now();
-    // might need to add T before the Hour..
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     String formattedDateTime = local.format(formatter);
     String formattedDateTimeWithRandom = formattedDateTime + "." + randInt;
@@ -42,9 +44,9 @@ public class Snapshot {
 
   @Override
   public String toString() {
-    return "Snapshot ID: " + snapshotID
-    + "Timestamp: " + timestamp
-            + "Description: " + this.description
+    return "Snapshot ID: " + snapshotID + "\n"
+    + "Timestamp: " + timestamp + "\n"
+            + "Description: " + this.description + "\n"
             + "Shape Information: " + photo.toString();
   }
 }

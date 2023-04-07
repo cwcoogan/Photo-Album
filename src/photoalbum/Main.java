@@ -4,6 +4,8 @@ import commands.ChangeNameCommand;
 import commands.ChangeYRadiusCommand;
 import shapes.IShape;
 import shapes.Oval;
+import shapes.Rectangle;
+import shapes.ShapeFactory;
 
 public class Main {
 
@@ -23,6 +25,19 @@ public class Main {
 //    p.removeShape(s);
     System.out.println(((Oval)p.getPhotoAlbum().get(0)).getRadiusY());
     System.out.println(((Oval)p.getPhotoAlbum().get(0)).getName());
+
+    ShapeFactory s1 = new ShapeFactory(p);
+    s1.createShape("oval", 1, 2, 3, "oval", "20 10");
+    System.out.println(((Oval)p.getPhotoAlbum().get(1)).getRadiusY());
+
+    ShapeFactory s3 = new ShapeFactory(p);
+    s3.createShape("rectangle", 25, 10, 5, "rect", "25 19");
+    System.out.println(((Rectangle)p.getPhotoAlbum().get(2)).getName());
+
+    Snapshot sn = new Snapshot("ddp", (Photo) p);
+//    System.out.println("Timestamp: " + sn.timestamp());
+//    System.out.println("Snapshot ID: " + sn.snapshotID());
+    System.out.println(sn.toString());
 
   }
  }

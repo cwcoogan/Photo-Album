@@ -81,7 +81,6 @@ public abstract class Shape implements IShape {
     Shape that = (Shape) o;
     return Objects.equals(name, that.name);
 
-
   }
   @Override
   public int hashCode() {

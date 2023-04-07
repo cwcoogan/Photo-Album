@@ -45,4 +45,13 @@ public class Photo implements IPhoto {
   public List<IShape> getPhotoAlbum() {
     return photoAlbum;
   }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    for (IShape shape : photoAlbum) {
+      sb.append(shape.toString());
+    }
+    return sb.toString();
+  }
 }

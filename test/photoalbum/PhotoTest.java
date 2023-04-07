@@ -9,8 +9,6 @@ import shapes.Rectangle;
 
 import static org.junit.Assert.assertEquals;
 
-
-
 public class PhotoTest {
   IPhoto p;
   IShape o;
