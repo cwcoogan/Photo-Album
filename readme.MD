@@ -6,7 +6,7 @@
 Name: Chase Coogan\
 Semeser: Spring 2023\
 Class: CS 5004\
-Github: https://github.com/cwcoogan\
+Github: [Github Link](https://github.com/cwcoogan)
 ___
 ## Project Outline:
 This projet explores the _Model_ principle within the MVC design pattern. For the Model, I decided to store all objects and snapshots in a Hashmap. The reason I chose a Hashmap was so that I can iterate between different states of the shape based on the <K,V> pair. I explore various different Design Patterns that will be discussed below. To preface, the design patterns I implemented are as follows:
