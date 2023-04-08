@@ -21,6 +21,10 @@ This project follows the MVC model, as well as has integration with different de
 </div>
 
 
+## UML Diagram:
+
+![](UML.png)
+
         
 
 
