@@ -11,7 +11,7 @@ This project explores the _Model_ principle within the MVC design pattern and ex
 This project follows the MVC model, as well as has integration with different design patterns such as the Command Pattern, and the Factory Pattern. File structure displayed below:
 
 <div class="container">
-  <div style="float: left; padding-right: 20px">
+  <div style="padding-right: 10px">
     <img src="filestructure.png" width="200" height="40%" />
   </div>
   <div style="float: right;padding-left: 20px">
