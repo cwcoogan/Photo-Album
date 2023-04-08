@@ -9,6 +9,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
+/**
+ * The type Snapshot.
+ */
 public class Snapshot {
   private final String timestamp;
   private final String snapshotID;
@@ -16,7 +19,12 @@ public class Snapshot {
   private final IPhoto photo;
 
 
-
+  /**
+   * Instantiates a new Snapshot.
+   *
+   * @param description the description
+   * @param photo       the photo
+   */
   public Snapshot(String description, IPhoto photo) {
     this.timestamp = timestamp();
     this.snapshotID = snapshotID();
@@ -24,6 +32,11 @@ public class Snapshot {
     this.photo = photo;
   }
 
+  /**
+   * Timestamp string.
+   *
+   * @return the string
+   */
   public String timestamp() {
     LocalDateTime local = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
@@ -31,6 +44,11 @@ public class Snapshot {
     return formattedDateTime;
   }
 
+  /**
+   * Snapshot id string.
+   *
+   * @return the string
+   */
   public String snapshotID() {
     UUID uuid = UUID.randomUUID();
     LocalDateTime local = LocalDateTime.now();
@@ -40,18 +58,38 @@ public class Snapshot {
     return formattedDateTimeWithRandom;
   }
 
+  /**
+   * Gets snapshot id.
+   *
+   * @return the snapshot id
+   */
   public String getSnapshotID() {
     return snapshotID;
   }
 
+  /**
+   * Gets timestamp.
+   *
+   * @return the timestamp
+   */
   public String getTimestamp() {
     return timestamp;
   }
 
+  /**
+   * Gets description.
+   *
+   * @return the description
+   */
   public String getDescription() {
     return description;
   }
 
+  /**
+   * Gets photo.
+   *
+   * @return the photo
+   */
   public IPhoto getPhoto() {
     return photo;
   }

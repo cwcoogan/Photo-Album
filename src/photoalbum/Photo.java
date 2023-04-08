@@ -8,12 +8,21 @@ import java.util.Map;
 import commands.Command;
 import shapes.IShape;
 
+/**
+ * The type Photo.
+ */
 public class Photo implements IPhoto {
+  /**
+   * The Command.
+   */
   Command command;
   private final List<IShape> photoAlbum;
   private final Map<Snapshot, String> snapshots;
 
 
+  /**
+   * Instantiates a new Photo.
+   */
   public Photo() {
     photoAlbum = new ArrayList<>();
     this.snapshots = new HashMap<>();
@@ -21,7 +30,7 @@ public class Photo implements IPhoto {
   }
 
 
-  public void setCommand(Command command) throws NullPointerException{
+  public void setCommand(Command command) throws NullPointerException {
     if (command == null) {
       throw new NullPointerException();
     }
@@ -38,7 +47,7 @@ public class Photo implements IPhoto {
   }
 
   @Override
-  public void addShape(IShape shape) throws IllegalArgumentException{
+  public void addShape(IShape shape) throws IllegalArgumentException {
     if (shape == null) {
       throw new IllegalArgumentException();
     }
@@ -64,6 +73,11 @@ public class Photo implements IPhoto {
     return snapshots;
   }
 
+  /**
+   * Gets snapshots.
+   *
+   * @return the snapshots
+   */
   public Map<Snapshot, String> getSnapshots() {
     return snapshots;
   }

@@ -3,13 +3,26 @@ package commands;
 import photoalbum.IPhoto;
 import photoalbum.Photo;
 
-public class GetHistoryCommand implements Command{
+/**
+ * The type Get history command.
+ */
+public class GetHistoryCommand implements Command {
   private IPhoto photo;
 
+  /**
+   * Instantiates a new Get history command.
+   *
+   * @param photo the photo
+   */
   public GetHistoryCommand(IPhoto photo) {
     this.photo = photo;
   }
 
+  /**
+   * Gets photo.
+   *
+   * @return the photo
+   */
   public IPhoto getPhoto() {
     return photo;
   }

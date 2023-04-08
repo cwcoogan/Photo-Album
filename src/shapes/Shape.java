@@ -4,6 +4,9 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * The type Shape.
+ */
 public abstract class Shape implements IShape {
   private double xCoord;
   private double yCoord;
@@ -11,15 +14,24 @@ public abstract class Shape implements IShape {
   private String name;
   private IShape type;
 
+  /**
+   * Instantiates a new Shape.
+   *
+   * @param xCoord the x coord
+   * @param yCoord the y coord
+   * @param color  the color
+   * @param name   the name
+   * @throws IllegalArgumentException the illegal argument exception
+   */
   public Shape(double xCoord, double yCoord, Color color, String name)
-          throws IllegalArgumentException{
+          throws IllegalArgumentException {
     if (name.isEmpty() || name.isBlank()) {
       throw new IllegalArgumentException();
     }
-      this.name = name;
-      this.xCoord = xCoord;
-      this.yCoord = yCoord;
-      this.color = color;
+    this.name = name;
+    this.xCoord = xCoord;
+    this.yCoord = yCoord;
+    this.color = color;
   }
 
   public void setColor(String color) throws NoSuchFieldException, IllegalAccessException {
@@ -67,10 +79,20 @@ public abstract class Shape implements IShape {
     return this.name;
   }
 
+  /**
+   * Gets coord.
+   *
+   * @return the coord
+   */
   public double getxCoord() {
     return xCoord;
   }
 
+  /**
+   * Gets coord.
+   *
+   * @return the coord
+   */
   public double getyCoord() {
     return yCoord;
   }
@@ -78,7 +100,7 @@ public abstract class Shape implements IShape {
   @Override
   public String toString() {
     return "Name: " + getName()
-            + "\nCenter: " + "(" + xCoord + ", "+ yCoord + ")"
+            + "\nCenter: " + "(" + xCoord + ", " + yCoord + ")"
             + "\nColor: " + "(" + getColor().getBlue() + ", " + getColor().getGreen() + ", " + getColor().getRed() + ")";
   }
 
@@ -90,6 +112,7 @@ public abstract class Shape implements IShape {
     return Objects.equals(name, that.name);
 
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(name);

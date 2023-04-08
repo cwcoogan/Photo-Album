@@ -8,13 +8,31 @@ import java.util.List;
 import exceptions.IllegalShapeTypeException;
 import photoalbum.IPhoto;
 
+/**
+ * The type Shape factory.
+ */
 public class ShapeFactory {
 
+  /**
+   * Create shape shape.
+   *
+   * @param photoAlbum the photo album
+   * @param shapeType  the shape type
+   * @param xCoord     the x coord
+   * @param yCoord     the y coord
+   * @param color      the color
+   * @param name       the name
+   * @param properties the properties
+   * @return the shape
+   * @throws IllegalShapeTypeException the illegal shape type exception
+   * @throws NoSuchFieldException      the no such field exception
+   * @throws IllegalAccessException    the illegal access exception
+   */
   public static IShape createShape(IPhoto photoAlbum, String shapeType, double xCoord,
-                                          double yCoord, String color, String name,
-                                          String properties) throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+                                   double yCoord, String color, String name,
+                                   String properties) throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
 
-    List<String> attributes =  Arrays.stream(properties.split(" ")).toList();
+    List<String> attributes = Arrays.stream(properties.split(" ")).toList();
     IShape shape;
 
     if (shapeType.equalsIgnoreCase("oval")) {
