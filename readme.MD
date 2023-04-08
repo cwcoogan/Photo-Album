@@ -10,7 +10,7 @@ This project explores the _Model_ principle within the MVC design pattern and ex
 ## Design Pattern:
 This project follows the MVC model, as well as has integration with different design patterns such as the Command Pattern, and the Factory Pattern. File structure displayed below:
 
-<img src="filestructure.png" width="30%" height="40%" align="left" />
+<img src="filestructure.png" width="50%" height="40%" align="left" />
   
 My file structure is broken up into various packages depending on their Design Pattern. The commands package follows the Command Design Pattern. The Command Design Pattern allows my application to encapsulate requests between the client and receiver. The way it works is by integrating an Interface which each ConcreteCommand class inherits to invoke various methods, allowing deeper encapsulation. Within my shapes package, I take advantage of the Factory Design Pattern by implementing a ShapeFactory. The ShapeFactory is responsible for instantiating new shapes based on the inputs. The Factory Pattern communicates with the Command Pattern through the ConcreteCommands. When a new shape is created and stored in a photoalbum, my application can then execute these commands. Finally, my Model is the photoalbum class. This class is responsible for the physical storage, and manipulation of the data. The data being stored, and modified is the object and it's state. 
 
