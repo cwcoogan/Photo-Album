@@ -22,14 +22,7 @@ My file structure is broken up into various packages depending on their Design P
 <br clear="left"/>
 <br/>
 ___ 
-# Links to code:
-* [Commands Package](src/commands)
-* [Shapes Package](src/shapes)
-* [Photoalbum Class](src/photoalbum.java)
-* [exceptions Package](src/exceptions)
-* [UML Diagram](UML.png)
-* [Snapshot Output](snapshot.png)
-___ 
+
 ## UML Diagram:
 
 ![](UML.png)
@@ -39,6 +32,15 @@ ___
 * This image displays the output to the terminal of the snapshot and all of it's data.
 
 ![](snapshot.png)
+___ 
+# Links to code:
+* [Commands Package](src/commands)
+* [Shapes Package](src/shapes)
+* [Photoalbum Class](src/photoalbum.java)
+* [exceptions Package](src/exceptions)
+* [UML Diagram](UML.png)
+* [Snapshot Output](snapshot.png)
+___ 
 
         
 
