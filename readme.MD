@@ -42,7 +42,7 @@ ___
 ## How to run:
 1. Clone the repository to your local machine.
 2. Open the project in your IDE of choice.
-3. Run the [Main.java](src/Main.java) file.
+3. Run the [Main.java](src/photoalbum/Main.java) file.
 4. If the Main does not exist-- create the Main & instantiate a Photo, IShape, and ShapeFactory class. Utilize the [commands package](src/commands) to create the commands you want to execute. 
 ___ 
 ## Links to code:
