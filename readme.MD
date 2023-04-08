@@ -9,13 +9,13 @@ Class: CS 5004\
 Github: [Github Link](https://github.com/cwcoogan)
 ___
 ## Project Outline:
-This projet explores the _Model_ principle within the MVC design pattern. For the Model, I decided to store all objects and snapshots in a Hashmap. The reason I chose a Hashmap was so that I can iterate between different states of the shape based on the <K,V> pair. I explore various different Design Patterns that will be discussed below. To preface, the design patterns I implemented are as follows:
+This project explores the _Model_ principle within the MVC design pattern. For the Model, I decided to store all objects and snapshots in a Hashmap. Using a Hashmap allows my application to iterate between different states of the shape based on the <K,V> pair stored in the Model. I explore various different Design Patterns that will be discussed below. My model is stored in the [photoalbum package](src/photoalbum). To preface, the design patterns I implemented are as follows:
 
 * Model-View-Controller Design Pattern
 * Command Design Pattern
 * Factory Design Pattern
 
-Implementing these various Design Patterns allows my application to have better encapsulation, and allows my Model to only have access to the Commands it needs to execute the methods appropriately.
+These Design Patterns allow my application to have deeper encapsulation, and allows my Model to only have access to the Commands it needs to execute the methods appropriately. This approach allows my Model to focus on it's sole job: storing and managing the data in it's various states.
 ___ 
 ## Design Pattern:
 This project follows the MVC model, as well as has integration with different design patterns such as the Command Pattern, and the Factory Pattern. File structure displayed below:
@@ -38,6 +38,12 @@ ___
 * This image displays the output to the terminal of the snapshot and all of it's data.
 
 ![](snapshot.png)
+___
+## How to run:
+1. Clone the repository to your local machine.
+2. Open the project in your IDE of choice.
+3. Run the [Main.java](src/Main.java) file.
+4. If the Main does not exist-- create the Main & instantiate a Photo, IShape, and ShapeFactory class. Utilize the [commands package](src/commands) to create the commands you want to execute. 
 ___ 
 ## Links to code:
 * [Commands Package](src/commands)
