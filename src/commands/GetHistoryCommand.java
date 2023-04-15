@@ -1,7 +1,6 @@
 package commands;
 
-import photoalbum.IPhoto;
-import photoalbum.Photo;
+import Model.IPhoto;
 
 /**
  * The type Get history command.

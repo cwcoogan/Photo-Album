@@ -1,9 +1,6 @@
 package commands;
 
-import commands.Command;
-import photoalbum.IPhoto;
-import photoalbum.Photo;
-import shapes.IShape;
+import Model.IPhoto;
 
 /**
  * The type Take snapshot command.

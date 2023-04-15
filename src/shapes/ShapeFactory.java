@@ -1,12 +1,11 @@
 package shapes;
 
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import exceptions.IllegalShapeTypeException;
-import photoalbum.IPhoto;
+import Model.IPhoto;
 
 /**
  * The type Shape factory.
