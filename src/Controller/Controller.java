@@ -2,6 +2,8 @@ package Controller;
 
 import java.awt.event.ActionEvent;
 
+import javax.swing.*;
+
 import View.IView;
 import Model.IPhoto;
 import Model.Photo;
@@ -18,7 +20,7 @@ public class Controller implements IController {
 
   }
   public void handlePreviousSnap(ActionEvent e) {
-    System.out.println("get previous snap");
+    this.view.changeSnapshot("angryhermaine.jpeg");
   }
 
   public void handleExitButtonClick(ActionEvent e) {
@@ -28,6 +30,19 @@ public class Controller implements IController {
   public void display() {
     this.view.display();
   }
+
+  public void changeSnapshot(ActionEvent e) {
+    this.view.changeSnapshot("snapshot.png");
+  }
+
+  public void displayComboBox(ActionEvent e) {
+    this.view.displayComboBox();
+  }
+
+  public void next(ActionEvent e) {
+    this.view.changeSnapshot("ghost.jpg");
+  }
+
 
 
 }

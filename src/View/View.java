@@ -1,20 +1,20 @@
 package View;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
 import Controller.IController;
 
 public class View extends JFrame implements IView{
-  private JFrame frame;
-  private JButton button;
-  private JLabel label;
   private int height;
   private int width;
   private IController controller;
+  private JPanel contentPane;
+  private JPanel imgPanel;
+  private JLabel img;
+
+
 
   // instantiate the Controller here and change
   public View(IController controller, int height, int width) throws IllegalArgumentException {
@@ -26,8 +26,6 @@ public class View extends JFrame implements IView{
     this.controller = controller;
 
     this.setSize(this.width, this.height);
-    button = new JButton();
-    label = new JLabel();
   }
 
   public JButton addNewButtons(JPanel buttonPanel, int x, int y, int width, int height, String text) {
@@ -41,9 +39,16 @@ public class View extends JFrame implements IView{
     this.setTitle("CS5004 Photo Album");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    JPanel contentPane = new JPanel();
+    contentPane = new JPanel();
     contentPane.setBackground(Color.BLUE);
     contentPane.setLayout(new BorderLayout());
+
+    imgPanel = new JPanel();
+    img = new JLabel("");
+    imgPanel.setLayout(new FlowLayout());
+    imgPanel.add(img);
+    imgPanel.setBackground(contentPane.getBackground());
+
 
     JPanel buttonPanel = new JPanel();
     buttonPanel.setOpaque(false);
@@ -52,15 +57,34 @@ public class View extends JFrame implements IView{
     prevButton.addActionListener(e -> controller.handlePreviousSnap(e));
 
     JButton snapshotButton = addNewButtons(buttonPanel, 225, 700, 130, 30, "Snapshot");
+    snapshotButton.addActionListener(e -> controller.displayComboBox(e));
+
 
     JButton nextButton = addNewButtons(buttonPanel, 425, 700, 130, 30, "Next");
+    nextButton.addActionListener(e -> controller.next(e));
+
     JButton exitButton = addNewButtons(buttonPanel, 625, 700, 130, 30, "Exit");
     exitButton.addActionListener(e -> controller.handleExitButtonClick(e));
 
 
-    contentPane.add(buttonPanel, BorderLayout.CENTER);
+    // initial snapshot...
+    changeSnapshot("angryhermaine.jpeg");
+
+    //    img.setBackground(contentPane.getBackground());
+    contentPane.add(imgPanel, BorderLayout.CENTER);
+    contentPane.add(buttonPanel, BorderLayout.NORTH);
     this.setContentPane(contentPane);
     this.setVisible(true);
+  }
+
+  public void changeSnapshot(String filename) {
+    String shortenPath = "src/images/";
+    ImageIcon newImg = new ImageIcon(shortenPath + filename);
+    img.setIcon(newImg);
+  }
+
+  public void displayComboBox() {
+    System.out.println("displaying");
   }
 
   @Override
