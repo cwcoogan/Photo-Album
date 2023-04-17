@@ -60,5 +60,6 @@ public interface IPhoto {
    * @return the history
    */
   Map<Snapshot, String> getHistory();
+  Map<Snapshot, String> getSnapshots();
 
 }

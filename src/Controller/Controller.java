@@ -1,9 +1,12 @@
 package Controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
+import java.util.Map;
 
 import javax.swing.*;
 
+import Model.Snapshot;
 import View.IView;
 import Model.IPhoto;
 import Model.Photo;
@@ -11,19 +14,20 @@ import View.View;
 
 public class Controller implements IController {
   IView view;
-  IPhoto photo;
+  IPhoto model;
+
 
 
   public Controller() {
     this.view = new View(this,800, 800);
-    this.photo = new Photo();
+    this.model = new Photo();
 
   }
-  public void handlePreviousSnap(ActionEvent e) {
+  public void handlePreviousSnap(MouseEvent e) {
     this.view.changeSnapshot("angryhermaine.jpeg");
   }
 
-  public void handleExitButtonClick(ActionEvent e) {
+  public void handleExitButtonClick(MouseEvent e) {
     view.dispose();
   }
 
@@ -31,18 +35,21 @@ public class Controller implements IController {
     this.view.display();
   }
 
-  public void changeSnapshot(ActionEvent e) {
+  public void changeSnapshot(MouseEvent e) {
     this.view.changeSnapshot("snapshot.png");
   }
 
-  public void displayComboBox(ActionEvent e) {
-    this.view.displayComboBox();
+
+  public void displayComboBox(MouseEvent e) {
+    this.view.displayComboBox(this.model.getSnapshots(), (JButton) e.getSource());
   }
 
-  public void next(ActionEvent e) {
+  public void next(MouseEvent e) {
     this.view.changeSnapshot("ghost.jpg");
   }
 
-
-
+  public void takeSnap() {
+    Map<Snapshot, String> snaps = this.model.getSnapshots();
+    snaps.put(new Snapshot("First Snapshot for Money Bags", this.model), "This is a test value");
+  }
 }

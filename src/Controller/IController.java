@@ -1,13 +1,15 @@
 package Controller;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 
 
 public interface IController {
-  void handlePreviousSnap(ActionEvent e);
-  void handleExitButtonClick(ActionEvent e);
+  void handlePreviousSnap(MouseEvent e);
+  void handleExitButtonClick(MouseEvent e);
   void display();
-  void next(ActionEvent e);
-  void displayComboBox(ActionEvent e);
-  void changeSnapshot(ActionEvent e);
+  void next(MouseEvent e);
+  void changeSnapshot(MouseEvent e);
+  void displayComboBox(MouseEvent e);
+  void takeSnap();
 }

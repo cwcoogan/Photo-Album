@@ -1,10 +1,18 @@
 package View;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.Map;
 
 import javax.swing.*;
 
 import Controller.IController;
+import Model.IPhoto;
+import Model.Snapshot;
+import shapes.IShape;
 
 public class View extends JFrame implements IView{
   private int height;
@@ -13,6 +21,9 @@ public class View extends JFrame implements IView{
   private JPanel contentPane;
   private JPanel imgPanel;
   private JLabel img;
+  private JPopupMenu snapshotComboBox;
+  private JPanel buttonPanel;
+
 
 
 
@@ -28,9 +39,8 @@ public class View extends JFrame implements IView{
     this.setSize(this.width, this.height);
   }
 
-  public JButton addNewButtons(JPanel buttonPanel, int x, int y, int width, int height, String text) {
-    JButton button = new JButton(text);
-    button.setBounds(x, y, width, height);
+  public JLabel addNewButtons(String path) {
+    JLabel button = new JLabel(new ImageIcon(path));
     buttonPanel.add(button);
     return button;
   }
@@ -40,39 +50,62 @@ public class View extends JFrame implements IView{
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     contentPane = new JPanel();
-    contentPane.setBackground(Color.BLUE);
-    contentPane.setLayout(new BorderLayout());
+//    contentPane.setBackground(Color.lightGray);
+    contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 
     imgPanel = new JPanel();
     img = new JLabel("");
-    imgPanel.setLayout(new FlowLayout());
+    imgPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 50));
     imgPanel.add(img);
-    imgPanel.setBackground(contentPane.getBackground());
+//    imgPanel.setBackground(Color.lightGray);
 
+    // --- BUTTON CONFIGS ---- //
+    buttonPanel = new JPanel();
+    buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 0));
 
-    JPanel buttonPanel = new JPanel();
-    buttonPanel.setOpaque(false);
-    buttonPanel.setLayout(new FlowLayout());
-    JButton prevButton = addNewButtons(buttonPanel, 25, 700, 130, 30, "previous");
-    prevButton.addActionListener(e -> controller.handlePreviousSnap(e));
+    // Previous Button -> Displays the previous Snap when clicked
+    JLabel prevButton = addNewButtons("src/images/leftArrow.png");
+    prevButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
+        controller.handlePreviousSnap(e);
+      }
+    });
 
-    JButton snapshotButton = addNewButtons(buttonPanel, 225, 700, 130, 30, "Snapshot");
-    snapshotButton.addActionListener(e -> controller.displayComboBox(e));
+    // SnapshotButton --> displays the ComboBox when clicked
+    JLabel snapshotButton = addNewButtons("src/images/menuButton.png");
+    snapshotButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
+        controller.displayComboBox(e);
+      }
+    });
 
+    // Next Button --> goes to the next snap when clicked
+    JLabel nextButton = addNewButtons("src/images/rightArrow.png");
+    nextButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
+        controller.next(e);
+      }
+    });
 
-    JButton nextButton = addNewButtons(buttonPanel, 425, 700, 130, 30, "Next");
-    nextButton.addActionListener(e -> controller.next(e));
-
-    JButton exitButton = addNewButtons(buttonPanel, 625, 700, 130, 30, "Exit");
-    exitButton.addActionListener(e -> controller.handleExitButtonClick(e));
+    // Exit Button --> exits the program when clicked
+    JLabel exitButton = addNewButtons("src/images/exitButton.png");
+    exitButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mouseClicked(MouseEvent e) {
+        controller.handleExitButtonClick(e);
+      }
+    });
 
 
     // initial snapshot...
     changeSnapshot("angryhermaine.jpeg");
-
     //    img.setBackground(contentPane.getBackground());
-    contentPane.add(imgPanel, BorderLayout.CENTER);
-    contentPane.add(buttonPanel, BorderLayout.NORTH);
+
+    contentPane.add(imgPanel);
+    contentPane.add(buttonPanel);
     this.setContentPane(contentPane);
     this.setVisible(true);
   }
@@ -83,8 +116,16 @@ public class View extends JFrame implements IView{
     img.setIcon(newImg);
   }
 
-  public void displayComboBox() {
-    System.out.println("displaying");
+  @Override
+  public void displayComboBox(Map<Snapshot, String> s, JButton button) {
+    snapshotComboBox = new JPopupMenu();
+    this.buttonPanel.add(snapshotComboBox);
+
+    for (Snapshot each : s.keySet()) {
+      JMenuItem newItem = new JMenuItem(each.getTimestamp());
+      snapshotComboBox.add(newItem);
+    }
+    snapshotComboBox.show(button, 0, button.getHeight());
   }
 
   @Override

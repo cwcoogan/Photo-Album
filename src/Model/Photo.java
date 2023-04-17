@@ -82,6 +82,7 @@ public class Photo implements IPhoto {
     return snapshots;
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
