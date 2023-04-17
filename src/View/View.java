@@ -117,7 +117,7 @@ public class View extends JFrame implements IView{
   }
 
   @Override
-  public void displayComboBox(Map<Snapshot, String> s, JButton button) {
+  public void displayComboBox(Map<Snapshot, String> s, JLabel button) {
     snapshotComboBox = new JPopupMenu();
     this.buttonPanel.add(snapshotComboBox);
 

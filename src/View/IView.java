@@ -12,6 +12,6 @@ public interface IView {
   void display();
   void dispose();
   void changeSnapshot(String filename);
-  void displayComboBox(Map<Snapshot, String> s, JButton button);
+  void displayComboBox(Map<Snapshot, String> s, JLabel button);
 
 }

@@ -41,7 +41,7 @@ public class Controller implements IController {
 
 
   public void displayComboBox(MouseEvent e) {
-    this.view.displayComboBox(this.model.getSnapshots(), (JButton) e.getSource());
+    this.view.displayComboBox(this.model.getSnapshots(), (JLabel) e.getSource());
   }
 
   public void next(MouseEvent e) {
