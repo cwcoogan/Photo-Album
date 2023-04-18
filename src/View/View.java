@@ -24,10 +24,6 @@ public class View extends JFrame implements IView{
   private JPopupMenu snapshotComboBox;
   private JPanel buttonPanel;
 
-
-
-
-  // instantiate the Controller here and change
   public View(IController controller, int height, int width) throws IllegalArgumentException {
     if (height < 0 || width < 0) {
       throw new IllegalArgumentException();
@@ -50,18 +46,16 @@ public class View extends JFrame implements IView{
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     contentPane = new JPanel();
-//    contentPane.setBackground(Color.lightGray);
     contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
 
     imgPanel = new JPanel();
     img = new JLabel("");
     imgPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 50));
     imgPanel.add(img);
-//    imgPanel.setBackground(Color.lightGray);
 
     // --- BUTTON CONFIGS ---- //
     buttonPanel = new JPanel();
-    buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 25, 0));
+    buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 0));
 
     // Previous Button -> Displays the previous Snap when clicked
     JLabel prevButton = addNewButtons("src/images/leftArrow.png");
@@ -81,7 +75,7 @@ public class View extends JFrame implements IView{
       }
     });
 
-    // Next Button --> goes to the next snap when clicked
+    // Next Button --> goes to the next snap when clicked //
     JLabel nextButton = addNewButtons("src/images/rightArrow.png");
     nextButton.addMouseListener(new MouseAdapter() {
       @Override
@@ -99,10 +93,8 @@ public class View extends JFrame implements IView{
       }
     });
 
-
-    // initial snapshot...
+    // initial snapshot... - change to file default
     changeSnapshot("angryhermaine.jpeg");
-    //    img.setBackground(contentPane.getBackground());
 
     contentPane.add(imgPanel);
     contentPane.add(buttonPanel);

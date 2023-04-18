@@ -15,35 +15,10 @@ public class ChangeHeightCommand implements Command {
    *
    * @param shape the shape
    */
-  public ChangeHeightCommand(IShape shape) {
+  public ChangeHeightCommand(IShape shape, double height) {
+
     this.shape = (Rectangle) shape;
-  }
-
-  /**
-   * Sets height.
-   *
-   * @param height the height
-   */
-  public void setHeight(double height) {
     this.height = height;
-  }
-
-  /**
-   * Gets shape.
-   *
-   * @return the shape
-   */
-  public Rectangle getShape() {
-    return shape;
-  }
-
-  /**
-   * Gets height.
-   *
-   * @return the height
-   */
-  public double getHeight() {
-    return height;
   }
 
   @Override

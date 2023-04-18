@@ -16,40 +16,15 @@ public class ChangeWidthCommand implements Command {
    *
    * @param shape the shape
    */
-  public ChangeWidthCommand(IShape shape) {
+  public ChangeWidthCommand(IShape shape, double width) {
     this.shape = (Rectangle) shape;
-
-  }
-
-  /**
-   * Sets width.
-   *
-   * @param width the width
-   */
-  public void setWidth(double width) {
     this.width = width;
-  }
 
-  /**
-   * Gets shape.
-   *
-   * @return the shape
-   */
-  public Rectangle getShape() {
-    return shape;
-  }
-
-  /**
-   * Gets width.
-   *
-   * @return the width
-   */
-  public double getWidth() {
-    return width;
   }
 
   @Override
   public void execute() {
+
     shape.setWidth(width);
   }
 }

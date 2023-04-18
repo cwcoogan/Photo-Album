@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class Photo implements IPhoto {
    */
   public Photo() {
     photoAlbum = new ArrayList<>();
-    this.snapshots = new HashMap<>();
+    this.snapshots = new LinkedHashMap<>();
 
   }
 
@@ -69,6 +70,8 @@ public class Photo implements IPhoto {
   public Map<Snapshot, String> getHistory() {
     for (Snapshot each : snapshots.keySet()) {
       System.out.println(snapshots.get(each));
+
+      System.out.println("\n");
     }
     return snapshots;
   }
@@ -82,6 +85,14 @@ public class Photo implements IPhoto {
     return snapshots;
   }
 
+  public IShape getShapeFromName(String shapeName) {
+    for (IShape shape : photoAlbum) {
+      if (shape.getName().equals(shapeName)) {
+        return shape;
+      }
+    }
+    return null;
+  }
 
   @Override
   public String toString() {
@@ -91,4 +102,5 @@ public class Photo implements IPhoto {
     }
     return sb.toString();
   }
+
 }

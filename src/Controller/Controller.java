@@ -19,7 +19,7 @@ public class Controller implements IController {
 
 
   public Controller() {
-    this.view = new View(this,800, 800);
+    this.view = new View(this,1000, 1000);
     this.model = new Photo();
 
   }
@@ -51,5 +51,13 @@ public class Controller implements IController {
   public void takeSnap() {
     Map<Snapshot, String> snaps = this.model.getSnapshots();
     snaps.put(new Snapshot("First Snapshot for Money Bags", this.model), "This is a test value");
+  }
+
+  public IView getView() {
+    return view;
+  }
+
+  public IPhoto getModel() {
+    return model;
   }
 }

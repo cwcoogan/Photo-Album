@@ -34,8 +34,8 @@ public abstract class Shape implements IShape {
     this.color = color;
   }
 
-  public void setColor(String color) throws NoSuchFieldException, IllegalAccessException {
-    this.color = (Color) Color.class.getField(color).get(null);
+  public void setColor(Color color) {
+    this.color = color;
   }
 
   public void setXCoord(double xCoord) {
@@ -101,7 +101,7 @@ public abstract class Shape implements IShape {
   public String toString() {
     return "Name: " + getName()
             + "\nCenter: " + "(" + xCoord + ", " + yCoord + ")"
-            + "\nColor: " + "(" + getColor().getBlue() + ", " + getColor().getGreen() + ", " + getColor().getRed() + ")";
+            + "\nColor: " + "(" + getColor().getRed() + ", " + getColor().getGreen() + ", " + getColor().getBlue() + ")";
   }
 
   @Override

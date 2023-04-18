@@ -1,5 +1,7 @@
 package commands;
 
+import java.awt.*;
+
 import shapes.IShape;
 
 /**
@@ -7,24 +9,15 @@ import shapes.IShape;
  */
 public class ChangeColorCommand implements Command {
   private final IShape shape;
-  private String color;
+  private Color color;
 
   /**
    * Instantiates a new Change color command.
    *
    * @param shape the shape
    */
-  public ChangeColorCommand(IShape shape) {
+  public ChangeColorCommand(IShape shape,  Color color) {
     this.shape = shape;
-  }
-
-
-  /**
-   * Sets color.
-   *
-   * @param color the color
-   */
-  public void setColor(String color) {
     this.color = color;
   }
 

@@ -28,20 +28,20 @@ public class ShapeFactory {
    * @throws IllegalAccessException    the illegal access exception
    */
   public static IShape createShape(IPhoto photoAlbum, String shapeType, double xCoord,
-                                   double yCoord, String color, String name,
+                                   double yCoord, Color color, String name,
                                    String properties) throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
 
-    List<String> attributes = Arrays.stream(properties.split(" ")).toList();
+    String[] attributes = properties.split(",");
     IShape shape;
 
     if (shapeType.equalsIgnoreCase("oval")) {
-      shape = new Oval(xCoord, yCoord, Color.getColor(color), name,
-              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1)));
+      shape = new Oval(xCoord, yCoord, color, name,
+              Double.parseDouble(attributes[0]), Double.parseDouble(attributes[1]));
       shape.setColor(color);
       photoAlbum.addShape(shape);
     } else if (shapeType.equalsIgnoreCase("rectangle")) {
-      shape = new Rectangle(xCoord, yCoord, Color.getColor(color), name,
-              Double.parseDouble(attributes.get(0)), Double.parseDouble(attributes.get(1)));
+      shape = new Rectangle(xCoord, yCoord, color, name,
+              Double.parseDouble(attributes[0]), Double.parseDouble(attributes[1]));
       shape.setColor(color);
       photoAlbum.addShape(shape);
     } else {

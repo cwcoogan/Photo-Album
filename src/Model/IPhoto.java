@@ -62,4 +62,6 @@ public interface IPhoto {
   Map<Snapshot, String> getHistory();
   Map<Snapshot, String> getSnapshots();
 
+  IShape getShapeFromName(String name);
+
 }

@@ -15,36 +15,12 @@ public class ChangeXRadiusCommand implements Command {
    *
    * @param shape the shape
    */
-  public ChangeXRadiusCommand(IShape shape) {
-    this.shape = (Oval) shape;
-  }
+  public ChangeXRadiusCommand(IShape shape, double xRadius) {
 
-  /**
-   * Sets x radius.
-   *
-   * @param xRadius the x radius
-   */
-  public void setXRadius(double xRadius) {
+    this.shape = (Oval) shape;
     this.xRadius = xRadius;
   }
 
-  /**
-   * Gets shape.
-   *
-   * @return the shape
-   */
-  public Oval getShape() {
-    return shape;
-  }
-
-  /**
-   * Gets x radius.
-   *
-   * @return the x radius
-   */
-  public double getXRadius() {
-    return xRadius;
-  }
 
   @Override
   public void execute() {

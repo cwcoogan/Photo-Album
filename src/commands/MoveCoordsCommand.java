@@ -17,20 +17,13 @@ public class MoveCoordsCommand implements Command {
    *
    * @param shape the shape
    */
-  public MoveCoordsCommand(IShape shape) {
+  public MoveCoordsCommand(IShape shape, double x, double y) {
     this.shape = shape;
-  }
-
-  /**
-   * Sets coords.
-   *
-   * @param x the x
-   * @param y the y
-   */
-  public void setCoords(double x, double y) {
     this.x = x;
     this.y = y;
   }
+
+
 
   @Override
   public void execute() {

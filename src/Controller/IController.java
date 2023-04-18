@@ -3,6 +3,9 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 
+import Model.IPhoto;
+import View.IView;
+
 
 public interface IController {
   void handlePreviousSnap(MouseEvent e);
@@ -12,4 +15,6 @@ public interface IController {
   void changeSnapshot(MouseEvent e);
   void displayComboBox(MouseEvent e);
   void takeSnap();
+  IPhoto getModel();
+  IView getView();
 }

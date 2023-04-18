@@ -48,7 +48,7 @@ public interface IShape {
    * @throws NoSuchFieldException   the no such field exception
    * @throws IllegalAccessException the illegal access exception
    */
-  void setColor(String color) throws NoSuchFieldException, IllegalAccessException;
+  void setColor(Color color) throws NoSuchFieldException, IllegalAccessException;
 
   /**
    * Sets name.
