@@ -2,7 +2,10 @@ package Model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.UUID;
+
+import shapes.IShape;
 
 /**
  * The type Snapshot.
@@ -12,6 +15,7 @@ public class Snapshot {
   private final String snapshotID;
   private final String description;
   private final IPhoto photo;
+  private final List<IShape> snapshotShapes;
 
 
   /**
@@ -20,11 +24,13 @@ public class Snapshot {
    * @param description the description
    * @param photo       the photo
    */
-  public Snapshot(String description, IPhoto photo) {
+  public Snapshot(String description, IPhoto photo, List<IShape> snapshotShapes) {
     this.timestamp = timestamp();
     this.snapshotID = snapshotID();
     this.description = description;
+    this.snapshotShapes = snapshotShapes;
     this.photo = photo;
+
   }
 
   /**
@@ -80,6 +86,10 @@ public class Snapshot {
     return description;
   }
 
+  public List<IShape> getShapes() {
+    return snapshotShapes;
+  }
+
   /**
    * Gets photo.
    *
@@ -94,6 +104,7 @@ public class Snapshot {
     return "Snapshot ID: " + snapshotID + "\n"
             + "Timestamp: " + timestamp + "\n"
             + "Description: " + this.description + "\n"
-            + "Shape Information: " + photo.toString() + "\n";
+            + "Shape Information: " + this.snapshotShapes + "\n";
   }
+
 }

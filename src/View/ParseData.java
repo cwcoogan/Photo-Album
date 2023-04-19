@@ -1,13 +1,9 @@
 package View;
 
+
 import java.awt.*;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import Model.IPhoto;
-import Model.Photo;
 import commands.ChangeColorCommand;
 import commands.ChangeHeightCommand;
 import commands.ChangeWidthCommand;
@@ -33,9 +29,15 @@ public class ParseData implements IParseData {
   private String type;
   private String description;
   private IPhoto model;
+  private String data;
 
-  public ParseData(String data, IPhoto model) throws IllegalShapeTypeException, NoSuchFieldException, IllegalAccessException {
+
+  public ParseData(String data, IPhoto model) {
     this.model = model;
+    this.data = data;
+  }
+
+  public void execute() throws NoSuchFieldException, IllegalAccessException, IllegalShapeTypeException {
     String[] getData = data.trim().split("\\s+");
     this.commandType = (getData[0]);
 
@@ -90,66 +92,7 @@ public class ParseData implements IParseData {
         this.name = getData[1];
         this.model.executeCommand(new RemoveShapeCommand(this.model.getShapeFromName(name), model));
         break;
-
     }
-
   }
 
-
-
-  public String getCommandType() {
-    return commandType;
-  }
-
-  public double getX() {
-    return x;
-  }
-
-  public double getY() {
-    return y;
-  }
-
-  public double getHeight() {
-    return height;
-  }
-
-  public double getWidth() {
-    return width;
-  }
-
-  @Override
-  public void setSnapshot(boolean b) {
-
-  }
-
-  public int getRed() {
-    return red;
-  }
-
-  public int getGreen() {
-    return green;
-  }
-
-  public int getBlue() {
-    return blue;
-  }
-
-  public String getType() {
-    return type;
-  }
-
-  @Override
-  public String toString() {
-           return
-            "command='" + commandType + '\'' +
-            ", x=" + x +
-            ", y=" + y +
-            ", height=" + height +
-            ", width=" + width +
-            ", red=" + red +
-            ", green=" + green +
-            ", blue=" + blue +
-            ", type='" + type + '\'';
-
-  }
 }

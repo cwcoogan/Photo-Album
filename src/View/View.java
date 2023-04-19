@@ -2,27 +2,37 @@ package View;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.*;
 
 import Controller.IController;
-import Model.IPhoto;
 import Model.Snapshot;
 import shapes.IShape;
 
 public class View extends JFrame implements IView{
   private int height;
   private int width;
+
+  // ## Misc ## //
   private IController controller;
+
+  // ## Panels ## //
   private JPanel contentPane;
-  private JPanel imgPanel;
-  private JLabel img;
-  private JPopupMenu snapshotComboBox;
+  private JPanel titlePanel;
   private JPanel buttonPanel;
+  private JPanel paintPanel;
+
+  // ## Labels ## //
+  private JLabel descriptionLabel;
+  private JLabel idLabel;
+
+  private JPopupMenu snapshotComboBox;
+  private Paint paint;
 
   public View(IController controller, int height, int width) throws IllegalArgumentException {
     if (height < 0 || width < 0) {
@@ -31,6 +41,7 @@ public class View extends JFrame implements IView{
     this.height = height;
     this.width = width;
     this.controller = controller;
+
 
     this.setSize(this.width, this.height);
   }
@@ -47,11 +58,6 @@ public class View extends JFrame implements IView{
 
     contentPane = new JPanel();
     contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
-
-    imgPanel = new JPanel();
-    img = new JLabel("");
-    imgPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 0, 50));
-    imgPanel.add(img);
 
     // --- BUTTON CONFIGS ---- //
     buttonPanel = new JPanel();
@@ -93,20 +99,29 @@ public class View extends JFrame implements IView{
       }
     });
 
-    // initial snapshot... - change to file default
-    changeSnapshot("angryhermaine.jpeg");
+    // ### Description And ID ### //
+    titlePanel = new JPanel(new BorderLayout());
+    descriptionLabel = new JLabel();
+    idLabel = new JLabel();
+    idLabel.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 18));
+    descriptionLabel.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 16));
+    titlePanel.add(descriptionLabel, BorderLayout.CENTER);
+    titlePanel.add(idLabel, BorderLayout.SOUTH);
+    titlePanel.setBorder(BorderFactory.createEmptyBorder(10, 5, 5, 10));
 
-    contentPane.add(imgPanel);
+    // ###### PAINT CONFIGS ###### //
+    paint = new Paint();
+    paintPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
+    paintPanel.add(paint);
+
+    contentPane.add(titlePanel);
+    contentPane.add(paintPanel);
     contentPane.add(buttonPanel);
+
     this.setContentPane(contentPane);
     this.setVisible(true);
   }
 
-  public void changeSnapshot(String filename) {
-    String shortenPath = "src/images/";
-    ImageIcon newImg = new ImageIcon(shortenPath + filename);
-    img.setIcon(newImg);
-  }
 
   @Override
   public void displayComboBox(Map<Snapshot, String> s, JLabel button) {
@@ -114,11 +129,34 @@ public class View extends JFrame implements IView{
     this.buttonPanel.add(snapshotComboBox);
 
     for (Snapshot each : s.keySet()) {
-      JMenuItem newItem = new JMenuItem(each.getTimestamp());
+      JMenuItem newItem = new JMenuItem(each.getSnapshotID());
       snapshotComboBox.add(newItem);
+
+      newItem.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          controller.changeSnapshot(((JMenuItem)e.getSource()).getText());
+        }
+      });
     }
     snapshotComboBox.show(button, 0, button.getHeight());
   }
+
+  @Override
+  public void paintSnapshot(List<IShape> shapes) {
+    paint.setShapes(shapes);
+    paint.repaint();
+  }
+
+  public void changeDescription(String description) {
+    descriptionLabel.setText(description);
+  }
+
+  @Override
+  public void changeID(String id) {
+    idLabel.setText(id);
+  }
+
 
   @Override
   public void display() {

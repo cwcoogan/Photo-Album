@@ -1,10 +1,11 @@
 package Controller;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 
 import Model.IPhoto;
 import View.IView;
+import exceptions.IllegalShapeTypeException;
 
 
 public interface IController {
@@ -12,9 +13,10 @@ public interface IController {
   void handleExitButtonClick(MouseEvent e);
   void display();
   void next(MouseEvent e);
-  void changeSnapshot(MouseEvent e);
   void displayComboBox(MouseEvent e);
+  void changeSnapshot(String id);
   void takeSnap();
   IPhoto getModel();
   IView getView();
+  void run() throws IllegalShapeTypeException, FileNotFoundException, NoSuchFieldException, IllegalAccessException ;
 }

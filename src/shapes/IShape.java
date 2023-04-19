@@ -78,17 +78,4 @@ public interface IShape {
    */
   String getName();
 
-  /**
-   * Gets x radius.
-   *
-   * @return the x radius
-   */
-  double getXRadius();
-
-  /**
-   * Gets y radius.
-   *
-   * @return the y radius
-   */
-  double getYRadius();
 }

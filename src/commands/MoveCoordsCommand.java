@@ -1,5 +1,6 @@
 package commands;
 
+import View.IView;
 import shapes.IShape;
 import shapes.Oval;
 import shapes.Rectangle;
@@ -11,7 +12,6 @@ public class MoveCoordsCommand implements Command {
   private final IShape shape;
   private double x;
   private double y;
-
   /**
    * Instantiates a new Move coords command.
    *
@@ -29,5 +29,6 @@ public class MoveCoordsCommand implements Command {
   public void execute() {
     shape.setXCoord(x);
     shape.setYCoord(y);
+
   }
 }

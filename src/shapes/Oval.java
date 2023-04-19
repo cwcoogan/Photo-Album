@@ -70,13 +70,4 @@ public class Oval extends Shape {
     return super.toString() + "\nType: " + this.getClass().getSimpleName() + "\n" + "X Radius: " + this.radiusX + " " + ", Y Radius: " + this.radiusY;
   }
 
-  @Override
-  public double getXRadius() {
-    return 0;
-  }
-
-  @Override
-  public double getYRadius() {
-    return 0;
-  }
 }

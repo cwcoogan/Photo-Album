@@ -2,6 +2,7 @@ package commands;
 
 import Model.IPhoto;
 import Model.Photo;
+import View.IView;
 import shapes.IShape;
 
 public class RemoveShapeCommand implements Command{

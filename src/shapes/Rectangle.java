@@ -77,13 +77,4 @@ public class Rectangle extends Shape {
     return super.toString() + "\nType: " + this.getClass().getSimpleName() + "\n" + "Width: " + this.width + " " + ", Height: " + this.height;
   }
 
-  @Override
-  public double getXRadius() {
-    return 0;
-  }
-
-  @Override
-  public double getYRadius() {
-    return 0;
-  }
 }

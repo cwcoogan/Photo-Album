@@ -1,7 +1,12 @@
 package commands;
 
 import java.awt.*;
+import java.util.Map;
 
+import Model.IPhoto;
+import Model.Photo;
+import Model.Snapshot;
+import View.IView;
 import shapes.IShape;
 
 /**
@@ -16,7 +21,7 @@ public class ChangeColorCommand implements Command {
    *
    * @param shape the shape
    */
-  public ChangeColorCommand(IShape shape,  Color color) {
+  public ChangeColorCommand(IShape shape, Color color) {
     this.shape = shape;
     this.color = color;
   }

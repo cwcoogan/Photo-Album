@@ -59,9 +59,15 @@ public interface IPhoto {
    *
    * @return the history
    */
-  Map<Snapshot, String> getHistory();
+
   Map<Snapshot, String> getSnapshots();
+  Map<Snapshot, String> getHistory();
 
   IShape getShapeFromName(String name);
+
+  Snapshot getFirstSnapshot();
+  Snapshot getNextSnapshot();
+  Snapshot getPreviousSnapshot();
+  Snapshot getSnapshotFromTimestamp(String id);
 
 }

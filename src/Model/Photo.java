@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +19,9 @@ public class Photo implements IPhoto {
   Command command;
   private final List<IShape> photoAlbum;
   private final Map<Snapshot, String> snapshots;
+  private Snapshot firstSnap = null;
+  private ArrayList<Snapshot> snapKeys = new ArrayList<>();
+  private int snapCount = 0;
 
 
   /**
@@ -43,7 +46,13 @@ public class Photo implements IPhoto {
   }
 
   public void takeSnapshot(String description) {
-    Snapshot sn = new Snapshot(description, (Photo) this);
+
+    List<IShape> snapShapes = new ArrayList<>(photoAlbum);
+    Snapshot sn = new Snapshot(description, this, snapShapes);
+    if (firstSnap == null) {
+      firstSnap = sn;
+    }
+    snapKeys.add(sn);
     snapshots.put(sn, sn.toString());
   }
 
@@ -89,6 +98,32 @@ public class Photo implements IPhoto {
     for (IShape shape : photoAlbum) {
       if (shape.getName().equals(shapeName)) {
         return shape;
+      }
+    }
+    return null;
+  }
+
+  @Override
+  public Snapshot getFirstSnapshot() {
+    return firstSnap;
+  }
+
+  public Snapshot getNextSnapshot() {
+    snapCount += 1;
+    return snapKeys.get(snapCount);
+  }
+
+  public Snapshot getPreviousSnapshot() {
+    snapCount -= 1;
+    return snapKeys.get(snapCount);
+  }
+
+  @Override
+  public Snapshot getSnapshotFromTimestamp(String id) {
+    for (Snapshot snapshot: snapshots.keySet()) {
+      if (snapshot.getSnapshotID().equals(id)) {
+        snapCount = snapKeys.indexOf(snapshot);
+        return snapshot;
       }
     }
     return null;

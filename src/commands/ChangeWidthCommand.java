@@ -1,5 +1,6 @@
 package commands;
 
+import View.IView;
 import shapes.IShape;
 import shapes.Rectangle;
 
