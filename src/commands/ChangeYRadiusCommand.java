@@ -14,7 +14,8 @@ public class ChangeYRadiusCommand implements Command {
   /**
    * Instantiates a new Change y radius command.
    *
-   * @param shape the shape
+   * @param shape  the shape
+   * @param radius the radius
    */
   public ChangeYRadiusCommand(IShape shape, double radius) {
 

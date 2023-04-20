@@ -20,6 +20,7 @@ public class ChangeColorCommand implements Command {
    * Instantiates a new Change color command.
    *
    * @param shape the shape
+   * @param color the color
    */
   public ChangeColorCommand(IShape shape, Color color) {
     this.shape = shape;

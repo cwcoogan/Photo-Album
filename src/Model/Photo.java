@@ -125,7 +125,7 @@ public class Photo implements IPhoto {
 
   @Override
   public Snapshot getSnapshotFromTimestamp(String id) {
-    for (Snapshot snapshot: snapshots.keySet()) {
+    for (Snapshot snapshot : snapshots.keySet()) {
       if (snapshot.getSnapshotID().equals(id)) {
         snapCount = snapKeys.indexOf(snapshot);
         return snapshot;

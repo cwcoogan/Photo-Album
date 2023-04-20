@@ -21,8 +21,9 @@ public class Snapshot {
   /**
    * Instantiates a new Snapshot.
    *
-   * @param description the description
-   * @param photo       the photo
+   * @param description    the description
+   * @param photo          the photo
+   * @param snapshotShapes the snapshot shapes
    */
   public Snapshot(String description, IPhoto photo, List<IShape> snapshotShapes) {
     this.timestamp = timestamp();
@@ -86,6 +87,11 @@ public class Snapshot {
     return description;
   }
 
+  /**
+   * Gets shapes.
+   *
+   * @return the shapes
+   */
   public List<IShape> getShapes() {
     return snapshotShapes;
   }

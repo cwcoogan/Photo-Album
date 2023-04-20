@@ -16,6 +16,9 @@ import exceptions.IllegalShapeTypeException;
 import shapes.IShape;
 import shapes.ShapeFactory;
 
+/**
+ * The type Parse data.
+ */
 public class ParseData implements IParseData {
   private String commandType;
   private double x;
@@ -32,6 +35,12 @@ public class ParseData implements IParseData {
   private String data;
 
 
+  /**
+   * Instantiates a new Parse data.
+   *
+   * @param data  the data
+   * @param model the model
+   */
   public ParseData(String data, IPhoto model) {
     this.model = model;
     this.data = data;
@@ -41,7 +50,7 @@ public class ParseData implements IParseData {
     String[] getData = data.trim().split("\\s+");
     this.commandType = (getData[0]);
 
-    switch(commandType.toLowerCase()){
+    switch (commandType.toLowerCase()) {
       case "snapshot":
         description = data.replace(commandType, "");
         this.model.executeCommand(new TakeSnapshotCommand(model, description));

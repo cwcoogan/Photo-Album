@@ -1,7 +1,6 @@
 package Controller;
 
 import java.awt.event.MouseEvent;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -20,20 +19,50 @@ import View.HTMLView;
 import exceptions.IllegalShapeTypeException;
 
 
+/**
+ * The type Controller.
+ */
 public class Controller implements IController {
+  /**
+   * The View.
+   */
   IView view;
+  /**
+   * The Model.
+   */
   IPhoto model;
+  /**
+   * The Html view.
+   */
   HTMLView HTMLView;
+  private String inputFile;
+  private String outputFile;
+  private String viewType;
+  private int xmax;
+  private int ymax;
 
 
-
-  public Controller() {
-    this.view = new View(this,1000, 1000);
+  /**
+   * Instantiates a new Controller.
+   *
+   * @param inputFile  the input file
+   * @param outputFile the output file
+   * @param viewType   the view type
+   * @param xmax       the xmax
+   * @param ymax       the ymax
+   */
+  public Controller(String inputFile, String outputFile, String viewType, int xmax, int ymax) {
+    if (viewType.equalsIgnoreCase("graphical")) {
+      this.view = new View(this, xmax, ymax);
+    }
+    if (viewType.equalsIgnoreCase("web")) {
+      this.HTMLView = new HTMLView(outputFile, xmax, ymax);
+    }
     this.model = new Photo();
-    this.HTMLView = new HTMLView("src/view/buildingsOut.html", 800, 800);
-
-
+    this.inputFile = inputFile;
+    this.outputFile = outputFile;
   }
+
   public void handlePreviousSnap(MouseEvent e) {
 
     Snapshot prevSnapshot = this.model.getPreviousSnapshot();
@@ -85,21 +114,24 @@ public class Controller implements IController {
   }
 
   public void run() throws IllegalShapeTypeException, IOException, NoSuchFieldException, IllegalAccessException {
-    ReadFromFile reader = new ReadFromFile("src/files/buildings.txt", this.getModel());
+    ReadFromFile reader = new ReadFromFile(inputFile, this.getModel());
     List<IParseData> parsedData = reader.readFile();
 
-    for (IParseData data: parsedData) {
+    for (IParseData data : parsedData) {
       data.execute();
     }
 
     // use to run both web and gui
-    this.HTMLView.convertToSVG(this.model.getSnapKeys());
-    this.view.display();
-
-    Snapshot firstSnapshot = this.model.getFirstSnapshot();
-    this.view.paintSnapshot(firstSnapshot.getShapes());
-    this.view.changeDescription(firstSnapshot.getDescription());
-    this.view.changeID(firstSnapshot.getSnapshotID());
+    if (HTMLView != null) {
+      this.HTMLView.convertToSVG(this.model.getSnapKeys());
+    }
+    if (view != null) {
+      this.view.display();
+      Snapshot firstSnapshot = this.model.getFirstSnapshot();
+      this.view.paintSnapshot(firstSnapshot.getShapes());
+      this.view.changeDescription(firstSnapshot.getDescription());
+      this.view.changeID(firstSnapshot.getSnapshotID());
+    }
   }
 
   public IView getView() {

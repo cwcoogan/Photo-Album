@@ -14,7 +14,10 @@ import Controller.IController;
 import Model.Snapshot;
 import shapes.IShape;
 
-public class View extends JFrame implements IView{
+/**
+ * The type View.
+ */
+public class View extends JFrame implements IView {
   private int height;
   private int width;
 
@@ -34,6 +37,14 @@ public class View extends JFrame implements IView{
   private JPopupMenu snapshotComboBox;
   private Paint paint;
 
+  /**
+   * Instantiates a new View.
+   *
+   * @param controller the controller
+   * @param height     the height
+   * @param width      the width
+   * @throws IllegalArgumentException the illegal argument exception
+   */
   public View(IController controller, int height, int width) throws IllegalArgumentException {
     if (height < 0 || width < 0) {
       throw new IllegalArgumentException();
@@ -46,12 +57,21 @@ public class View extends JFrame implements IView{
     this.setSize(this.width, this.height);
   }
 
+  /**
+   * Add new buttons j label.
+   *
+   * @param path the path
+   * @return the j label
+   */
   public JLabel addNewButtons(String path) {
     JLabel button = new JLabel(new ImageIcon(path));
     buttonPanel.add(button);
     return button;
   }
 
+  /**
+   * Sets up window.
+   */
   public void setUpWindow() {
     this.setTitle("CS5004 Photo Album");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -135,7 +155,7 @@ public class View extends JFrame implements IView{
       newItem.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-          controller.changeSnapshot(((JMenuItem)e.getSource()).getText());
+          controller.changeSnapshot(((JMenuItem) e.getSource()).getText());
         }
       });
     }

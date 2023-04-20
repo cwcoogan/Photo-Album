@@ -14,7 +14,8 @@ public class ChangeXRadiusCommand implements Command {
   /**
    * Instantiates a new Change x radius command.
    *
-   * @param shape the shape
+   * @param shape   the shape
+   * @param xRadius the x radius
    */
   public ChangeXRadiusCommand(IShape shape, double xRadius) {
 

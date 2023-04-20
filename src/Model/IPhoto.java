@@ -60,15 +60,56 @@ public interface IPhoto {
    *
    * @return the history
    */
-
   Map<Snapshot, String> getSnapshots();
+
+  /**
+   * Gets history.
+   *
+   * @return the history
+   */
   Map<Snapshot, String> getHistory();
 
+  /**
+   * Gets shape from name.
+   *
+   * @param name the name
+   * @return the shape from name
+   */
   IShape getShapeFromName(String name);
 
+  /**
+   * Gets first snapshot.
+   *
+   * @return the first snapshot
+   */
   Snapshot getFirstSnapshot();
+
+  /**
+   * Gets next snapshot.
+   *
+   * @return the next snapshot
+   */
   Snapshot getNextSnapshot();
+
+  /**
+   * Gets previous snapshot.
+   *
+   * @return the previous snapshot
+   */
   Snapshot getPreviousSnapshot();
+
+  /**
+   * Gets snapshot from timestamp.
+   *
+   * @param id the id
+   * @return the snapshot from timestamp
+   */
   Snapshot getSnapshotFromTimestamp(String id);
+
+  /**
+   * Gets snap keys.
+   *
+   * @return the snap keys
+   */
   ArrayList<Snapshot> getSnapKeys();
 }

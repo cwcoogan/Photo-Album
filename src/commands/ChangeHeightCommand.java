@@ -14,7 +14,8 @@ public class ChangeHeightCommand implements Command {
   /**
    * Instantiates a new Change height command.
    *
-   * @param shape the shape
+   * @param shape  the shape
+   * @param height the height
    */
   public ChangeHeightCommand(IShape shape, double height) {
 

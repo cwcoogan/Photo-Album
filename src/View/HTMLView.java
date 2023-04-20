@@ -11,24 +11,46 @@ import shapes.IShape;
 import shapes.Oval;
 import shapes.Rectangle;
 
+/**
+ * The type Html view.
+ */
 public class HTMLView {
   private String outputFile;
   private int width;
   private int height;
 
 
+  /**
+   * Instantiates a new Html view.
+   *
+   * @param outputFile the output file
+   * @param width      the width
+   * @param height     the height
+   */
   public HTMLView(String outputFile, int width, int height) {
     this.outputFile = outputFile;
     this.width = width;
     this.height = height;
   }
 
+  /**
+   * Write to file.
+   *
+   * @param svg the svg
+   * @throws IOException the io exception
+   */
   public void writeToFile(String svg) throws IOException {
     BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
     writer.write(svg);
     writer.close();
   }
 
+  /**
+   * Convert to svg.
+   *
+   * @param snapKeys the snap keys
+   * @throws IOException the io exception
+   */
   public void convertToSVG(ArrayList<Snapshot> snapKeys) throws IOException {
     StringBuilder svg = new StringBuilder();
     svg.append("<!DOCTYPE html>\n");
@@ -49,7 +71,7 @@ public class HTMLView {
       svg.append("<div class=\"snapshot\">\n");
       svg.append("<h2>" + snapshot.getSnapshotID() + "</h2>\n");
       svg.append("<h2>" + snapshot.getDescription() + "</h2>\n");
-      svg.append("<svg width='" + width + "' height='" + height +"'>\n");
+      svg.append("<svg width='" + width + "' height='" + height + "'>\n");
 
       for (IShape shape : snapshot.getShapes()) {
         svg.append(getSVG(shape));
@@ -61,6 +83,12 @@ public class HTMLView {
     this.writeToFile(svg.toString());
   }
 
+  /**
+   * Gets svg.
+   *
+   * @param shape the shape
+   * @return the svg
+   */
   public String getSVG(IShape shape) {
     String svgShape = "";
     if (shape instanceof Rectangle) {
@@ -74,11 +102,22 @@ public class HTMLView {
     return svgShape;
   }
 
+  /**
+   * Construct rectangle string builder.
+   *
+   * @param shape  the shape
+   * @param x      the x
+   * @param y      the y
+   * @param height the height
+   * @param width  the width
+   * @param color  the color
+   * @return the string builder
+   */
   public StringBuilder constructRectangle(IShape shape, int x, int y, int height, int width, Color color) {
     StringBuilder rectBuilder = new StringBuilder();
     String svgShape = "";
     svgShape = String.format("<rect x=\"%s\" y=\"%s\" width=\"%s\" height=\"%s\" fill=\"#%02x%02x%02x\" />\n",
-             x,
+            x,
             y,
             height,
             width,
@@ -89,6 +128,17 @@ public class HTMLView {
     return rectBuilder.append(svgShape);
   }
 
+  /**
+   * Construct oval string builder.
+   *
+   * @param shape  the shape
+   * @param x      the x
+   * @param y      the y
+   * @param height the height
+   * @param width  the width
+   * @param color  the color
+   * @return the string builder
+   */
   public StringBuilder constructOval(IShape shape, int x, int y, int height, int width, Color color) {
     StringBuilder ovalBuilder = new StringBuilder();
     String svgShape = "";

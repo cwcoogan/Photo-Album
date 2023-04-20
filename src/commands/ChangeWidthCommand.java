@@ -16,6 +16,7 @@ public class ChangeWidthCommand implements Command {
    * Instantiates a new Change width command.
    *
    * @param shape the shape
+   * @param width the width
    */
   public ChangeWidthCommand(IShape shape, double width) {
     this.shape = (Rectangle) shape;
