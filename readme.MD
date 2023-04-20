@@ -19,16 +19,16 @@ I continued to work with the same Design Patterns from Part 1 of the project:
 
 I found that these Design Patterns allow my application to have deeper encapsulation, and allows my Model, Controller, and Views to only have access to the Commands they need to execute the application appropriately. This approach allows my Model to focus on it's sole job: storing and managing the data in it's various states. My Controller is able to focus on mediating between the Model and the View, and it allows my view to focus on displaying the data and application to the client. I found the interconnection between each principle to be within the Controller where I am able to actually manipulate the data being passed around and execute commands and update the Model appropriately.
 ___ 
-## Design Pattern:
-This project follows the MVC model, as well as has integration with different design patterns such as the Command Pattern, and the Factory Pattern. File structure displayed below:
+## Project Updates:
 
-<br/>
+From Part 1 to Part 2, I added the following features:
+* Added a Controller to mediate between the Model and the View(s)
+* Added a GUI View built with Java Swing
+* Added a static HTML View
 
-<img src="defaultSnap.png" width="25%" height="40%" align="left" />
-  
-My file structure is broken up into various packages depending on their Design Pattern. The commands package follows the Command Design Pattern. The Command Design Pattern allows my application to encapsulate requests between the client and receiver within Command Objects. The way it works is by integrating an Interface which each ConcreteCommand class inherits to invoke various methods, allowing deeper encapsulation. Within my shapes package, I take advantage of the Factory Design Pattern by implementing a ShapeFactory. The ShapeFactory is responsible for instantiating new shapes based on the inputs. The Factory Pattern communicates with the Command Pattern through the ConcreteCommands. When a new shape is created and stored in a Model, my application can then execute these commands. The Model package is my model and is responsible for the storage and manipulation of the data. The data being stored and modified is the object and it's state(s).
-<br clear="left"/>
-<br/>
+I continued to follow the MVC, Command and Factory Design Patterns. My file structure is broken up into the respective Design Patterns that they follow. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package Command that follows the Command Design Pattern and I have a package Shapes that follows the Factory Design Pattern. 
+
+My [Controller](src/Controller) is the interlinking between the Model and the View. On the graphical interface, my controller acts as the point of contact for executing the Snapshots to be sent to the View. If the user selects a snapshot, or returns to the previous or goes to the next snapshot- my Model receives this request and then the View displays this appropriately. My Controller also acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display the data in the correct state.. 
 
 ___
 ## GUI Snapshot photos:
@@ -52,7 +52,7 @@ ___
 
 ___
 ## Static Web Snapshot photos:
-* The following images showcase each Snapshot state of the Model, displayed through the Satic HTML View renered on my local host.
+* The following images showcase each Snapshot state of the Model, displayed through the static HTML View rendered on my local host.
 <!-- Create a table for the first row with 3 columns -->
 <table>
   <tr>
@@ -67,7 +67,7 @@ ___
 1. Clone the repository to your local machine.
 2. Open the project in your IDE of choice.
 3. Navigate to the [resources folder](src/resources) that contains the .jar file  
-4. In the CLI run the command ```java -jar homework8.jar -in buildings.txt -out /User/chasecoogan/Documents/module7/homework8/src/resources.html - view web ```
+4. In the CLI run the command ```java -jar homework8.jar -in buildings.txt -out [Your output file path] - view web ```
 5. Navigate to the [resources folder](src/resources) and open the .html file to view the output.
 ___ 
 ## Links to code:
