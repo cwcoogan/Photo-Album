@@ -141,6 +141,66 @@ public class Controller implements IController {
   public IPhoto getModel() {
     return model;
   }
+
+  /**
+   * Gets html view.
+   *
+   * @return the html view
+   */
+  public HTMLView getHTMLView() {
+    return HTMLView;
+  }
+
+  /**
+   * Gets input file.
+   *
+   * @return the input file
+   */
+  public String getInputFile() {
+    return inputFile;
+  }
+
+  /**
+   * Gets output file.
+   *
+   * @return the output file
+   */
+  public String getOutputFile() {
+    return outputFile;
+  }
+
+  /**
+   * Gets view type.
+   *
+   * @return the view type
+   */
+  public String getViewType() {
+    return viewType;
+  }
+
+  /**
+   * Gets xmax.
+   *
+   * @return the xmax
+   */
+  public int getXmax() {
+    return xmax;
+  }
+
+  /**
+   * Gets ymax.
+   *
+   * @return the ymax
+   */
+  public int getYmax() {
+    return ymax;
+  }
+
+
+
+
 }
+
+
 
 

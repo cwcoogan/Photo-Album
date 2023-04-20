@@ -7,7 +7,6 @@ import Model.IPhoto;
 import View.IView;
 import exceptions.IllegalShapeTypeException;
 
-
 /**
  * The interface Controller.
  */

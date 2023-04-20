@@ -27,7 +27,10 @@ public class HTMLView {
    * @param width      the width
    * @param height     the height
    */
-  public HTMLView(String outputFile, int width, int height) {
+  public HTMLView(String outputFile, int width, int height) throws IllegalArgumentException {
+    if (width <= 0 || height <= 0) {
+      throw new IllegalArgumentException("Width and height must be positive");
+    }
     this.outputFile = outputFile;
     this.width = width;
     this.height = height;
@@ -140,6 +143,7 @@ public class HTMLView {
    * @return the string builder
    */
   public StringBuilder constructOval(IShape shape, int x, int y, int height, int width, Color color) {
+
     StringBuilder ovalBuilder = new StringBuilder();
     String svgShape = "";
     svgShape = String.format("<ellipse cx=\"%s\" cy=\"%s\" rx=\"%s\" ry=\"%s\" fill=\"#%02x%02x%02x\" />\n",
@@ -153,4 +157,18 @@ public class HTMLView {
 
     return ovalBuilder.append(svgShape);
   }
+
+  public String getOutputFile() {
+    return outputFile;
+  }
+
+  public int getWidth() {
+    return width;
+  }
+
+  public int getHeight() {
+    return height;
+  }
+
+
 }
