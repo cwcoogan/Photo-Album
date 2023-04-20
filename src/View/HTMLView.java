@@ -34,8 +34,16 @@ public class HTMLView {
     svg.append("<!DOCTYPE html>\n");
     svg.append("<html>\n");
     svg.append("<head>\n");
+    svg.append("<style>\n");
+    svg.append(".snapshot {\n");
+    svg.append("\tborder: 5px solid red;\n");
+    svg.append("\tmargin-bottom: 10px;\n");
+    svg.append("background-color: lightblue\n");
+    svg.append("}\n");
+    svg.append("</style>\n");
     svg.append("</head>\n");
     svg.append("<body>\n");
+
 
     for (Snapshot snapshot : snapKeys) {
       svg.append("<div class=\"snapshot\">\n");

@@ -92,14 +92,14 @@ public class Controller implements IController {
       data.execute();
     }
 
+    // use to run both web and gui
     this.HTMLView.convertToSVG(this.model.getSnapKeys());
+    this.view.display();
 
-//    this.view.display();
-//
-//    Snapshot firstSnapshot = this.model.getFirstSnapshot();
-//    this.view.paintSnapshot(firstSnapshot.getShapes());
-//    this.view.changeDescription(firstSnapshot.getDescription());
-//    this.view.changeID(firstSnapshot.getSnapshotID());
+    Snapshot firstSnapshot = this.model.getFirstSnapshot();
+    this.view.paintSnapshot(firstSnapshot.getShapes());
+    this.view.changeDescription(firstSnapshot.getDescription());
+    this.view.changeID(firstSnapshot.getSnapshotID());
   }
 
   public IView getView() {
