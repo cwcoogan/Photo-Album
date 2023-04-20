@@ -29,15 +29,10 @@ This project follows the MVC model, as well as has integration with different de
 My file structure is broken up into various packages depending on their Design Pattern. The commands package follows the Command Design Pattern. The Command Design Pattern allows my application to encapsulate requests between the client and receiver within Command Objects. The way it works is by integrating an Interface which each ConcreteCommand class inherits to invoke various methods, allowing deeper encapsulation. Within my shapes package, I take advantage of the Factory Design Pattern by implementing a ShapeFactory. The ShapeFactory is responsible for instantiating new shapes based on the inputs. The Factory Pattern communicates with the Command Pattern through the ConcreteCommands. When a new shape is created and stored in a Model, my application can then execute these commands. The Model package is my model and is responsible for the storage and manipulation of the data. The data being stored and modified is the object and it's state(s).
 <br clear="left"/>
 <br/>
-___ 
-
-## UML Diagram:
-
-![](src/images/UML.png)
 
 ___
-## Snapshot output photo:
-* The following images showcase each Snapshot state of the Model, displayed through the View.
+## GUI Snapshot photos:
+* The following images showcase each Snapshot state of the Model, displayed through the GUI View.
 
 <!-- Create a table for the first row with 3 columns -->
 <table>
@@ -52,6 +47,18 @@ ___
   <tr>
     <td style="padding: 10px;"><img src="src/images/snap4Error.png" alt="Image 4" width="480"></td>
     <td style="padding: 10px;"><img src="src/images/snap5.png" alt="Image 5" width="480"></td>
+  </tr>
+</table>
+
+___
+## Static Web Snapshot photos:
+* The following images showcase each Snapshot state of the Model, displayed through the Satic HTML View renered on my local host.
+<!-- Create a table for the first row with 3 columns -->
+<table>
+  <tr>
+    <td style="padding: 10px;"><img src="src/images/static1.png" alt="Image 1" width="320"></td>
+    <td style="padding: 10px;"><img src="src/images/static2.png" alt="Image 2" width="320"></td>
+    <td style="padding: 10px;"><img src="src/images/static3.png" alt="Image 3" width="320"></td>
   </tr>
 </table>
 
