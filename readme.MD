@@ -24,7 +24,7 @@ This project follows the MVC model, as well as has integration with different de
 
 <br/>
 
-<img src="fs.png" width="25%" height="40%" align="left" />
+<img src="defaultSnap.png" width="25%" height="40%" align="left" />
   
 My file structure is broken up into various packages depending on their Design Pattern. The commands package follows the Command Design Pattern. The Command Design Pattern allows my application to encapsulate requests between the client and receiver within Command Objects. The way it works is by integrating an Interface which each ConcreteCommand class inherits to invoke various methods, allowing deeper encapsulation. Within my shapes package, I take advantage of the Factory Design Pattern by implementing a ShapeFactory. The ShapeFactory is responsible for instantiating new shapes based on the inputs. The Factory Pattern communicates with the Command Pattern through the ConcreteCommands. When a new shape is created and stored in a Model, my application can then execute these commands. The Model package is my model and is responsible for the storage and manipulation of the data. The data being stored and modified is the object and it's state(s).
 <br clear="left"/>
@@ -37,9 +37,35 @@ ___
 
 ___
 ## Snapshot output photo:
-* This image displays the output to the terminal of the snapshot and all of it's data.
+* The following images showcase each Snapshot state of the Model, displayed through the View.
 
-![](src/images/snapshot.png)
+<style>
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px; /* Add margin between rows */
+  }
+
+  .image-row img {
+    max-width: 250px; /* Set max width for images */
+    max-height: 250px; /* Set max height for images */
+    margin-right: 10px; /* Add margin between images */
+  }
+</style>
+
+<!-- First row of images -->
+<div class="image-row">
+  <img src="src/images/defaultSnap.png" alt="Image 1">
+  <img src="src/images/snap2.png" alt="Image 2">
+  <img src="src/images/snap3.png" alt="Image 3">
+</div>
+
+<!-- Second row of images -->
+<div class="image-row">
+  <img src="src/images/snap4Error.png" alt="Image 4">
+  <img src="src/images/snap5.png" alt="Image 5">
+</div>
+
 ___
 ## How to run (JAR):
 1. Clone the repository to your local machine.
