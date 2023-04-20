@@ -157,6 +157,10 @@ public class View extends JFrame implements IView{
     idLabel.setText(id);
   }
 
+  @Override
+  public void outOfSnapshots() {
+    JOptionPane.showMessageDialog(null, "No more snapshots!", "Error", JOptionPane.ERROR_MESSAGE);
+  }
 
   @Override
   public void display() {

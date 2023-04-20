@@ -25,10 +25,12 @@ public class Paint extends JPanel {
 
       switch (shapeType) {
         case "oval":
-          g.fillOval((int) shape.getXCoord(), (int) shape.getYCoord(), (int) ((Oval) shape).getRadiusX(), (int) ((Oval) shape).getRadiusY());
+          g.fillOval((int) shape.getXCoord(), (int) shape.getYCoord(),
+                  (int) ((Oval) shape).getRadiusX(), (int) ((Oval) shape).getRadiusY());
           break;
         case "rectangle":
-          g.fillRect((int) shape.getXCoord(), (int) shape.getYCoord(), (int) ((Rectangle) shape).getWidth(), (int) ((Rectangle) shape).getHeight() );
+          g.fillRect((int) shape.getXCoord(), (int) shape.getYCoord(),
+                  (int) ((Rectangle) shape).getWidth(), (int) ((Rectangle) shape).getHeight() );
           break;
       }
     }

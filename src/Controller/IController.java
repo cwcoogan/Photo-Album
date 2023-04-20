@@ -2,6 +2,7 @@ package Controller;
 
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import Model.IPhoto;
 import View.IView;
@@ -18,5 +19,5 @@ public interface IController {
   void takeSnap();
   IPhoto getModel();
   IView getView();
-  void run() throws IllegalShapeTypeException, FileNotFoundException, NoSuchFieldException, IllegalAccessException ;
+  void run() throws IllegalShapeTypeException, IOException, NoSuchFieldException, IllegalAccessException ;
 }

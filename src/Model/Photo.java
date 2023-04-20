@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -109,11 +108,17 @@ public class Photo implements IPhoto {
   }
 
   public Snapshot getNextSnapshot() {
+    if (snapCount + 1 >= snapKeys.size()) {
+      return null;
+    }
     snapCount += 1;
     return snapKeys.get(snapCount);
   }
 
   public Snapshot getPreviousSnapshot() {
+    if (snapCount - 1 < 0) {
+      return null;
+    }
     snapCount -= 1;
     return snapKeys.get(snapCount);
   }
@@ -129,6 +134,10 @@ public class Photo implements IPhoto {
     return null;
   }
 
+  public ArrayList<Snapshot> getSnapKeys() {
+    return snapKeys;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -137,5 +146,4 @@ public class Photo implements IPhoto {
     }
     return sb.toString();
   }
-
 }

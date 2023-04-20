@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.swing.*;
 
-import Model.IPhoto;
 import Model.Snapshot;
 import shapes.IShape;
 
@@ -19,4 +18,5 @@ public interface IView {
   void repaint();
   void changeDescription(String description);
   void changeID(String id);
+  void outOfSnapshots();
 }
