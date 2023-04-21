@@ -27,7 +27,7 @@ public class PhotoAlbumMain {
     int xmax = 1000;
     int ymax = 1000;
 
-    if (args.length < 5) {
+    if (args.length < 4) {
       System.out.println("Insufficient arguments");
       System.exit(1);
     }
@@ -38,6 +38,9 @@ public class PhotoAlbumMain {
           inputFile = args[++i];
           break;
         case "-view":
+          viewType = args[++i];
+          break;
+        case "-v":
           viewType = args[++i];
           break;
         case "-out":
