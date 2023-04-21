@@ -39,16 +39,16 @@ ___
 <!-- Create a table for the first row with 3 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="src/images/defaultSnap.png" alt="Image 1" width="320"></td>
-    <td style="padding: 10px;"><img src="src/images/snap2.png" alt="Image 2" width="320"></td>
-    <td style="padding: 10px;"><img src="src/images/snap3.png" alt="Image 3" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/defaultSnap.png" alt="Image 1" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/snap2.png" alt="Image 2" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/snap3.png" alt="Image 3" width="320"></td>
   </tr>
 </table>
 <!-- Create a table for the second row with 2 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="src/images/snap4Error.png" alt="Image 4" width="480"></td>
-    <td style="padding: 10px;"><img src="src/images/snap5.png" alt="Image 5" width="480"></td>
+    <td style="padding: 10px;"><img src="../images/snap4Error.png" alt="Image 4" width="480"></td>
+    <td style="padding: 10px;"><img src="../images/snap5.png" alt="Image 5" width="480"></td>
   </tr>
 </table>
 
@@ -58,9 +58,9 @@ ___
 <!-- Create a table for the first row with 3 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="src/images/static1.png" alt="Image 1" width="320"></td>
-    <td style="padding: 10px;"><img src="src/images/static2.png" alt="Image 2" width="320"></td>
-    <td style="padding: 10px;"><img src="src/images/static3.png" alt="Image 3" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/static1.png" alt="Image 1" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/static2.png" alt="Image 2" width="320"></td>
+    <td style="padding: 10px;"><img src="../images/static3.png" alt="Image 3" width="320"></td>
   </tr>
 </table>
 
@@ -69,8 +69,10 @@ ___
 1. Clone the repository to your local machine.
 2. Open the project in your IDE of choice.
 3. Navigate to the [resources folder](src/resources) that contains the .jar file  
-4. In the CLI run the command ```java -jar homework8.jar -in buildings.txt -out [Your output file path] - view web ```
-5. Navigate to the [resources folder](src/resources) and open the .html file to view the output
+4. To run static view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -out [Your output file path] -view web ```
+4. To run graphical view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -view graphical 800 800```
+5. Navigate to the [resources folder](src/resources) and right click open the .html file to view the output in a browser of your choice
+6. 
 ___ 
 ## Links to code:
 * [Model Package](src/Model)
