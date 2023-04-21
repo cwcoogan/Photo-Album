@@ -9,7 +9,7 @@ Class: CS 5004\
 Github: [Project Link (repo private may not work)](https://github.com/cwcoogan/homework9)
 ___
 ## Project Outline:                         
-This project explores the _Controller_ and _View_ principles within the MVC design pattern. For this project, I created two views: a graphical interface built with Java Swing and the  a static HTML page. My Controller acts as the mediator between each view, and the Model. The Controller is stored in [Controller Package](../Controller) and the View(s) are stored in [View Packages](../View).
+This project explores the _Controller_ and _View_ principles within the MVC design pattern. For this project, I created two views: a graphical interface built with Java Swing and the  a static HTML page. My Controller acts as the mediator between each view, and the Model. The Controller is stored in [Controller Package](../src/Controller) and the View(s) are stored in [View Packages](../src/View).
 
 I continued to work with the same Design Patterns from Part 1 of the project:
 
@@ -30,7 +30,7 @@ From Part 1 to Part 2, I added the following features:
 
 I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [commands](../commands) that follows the Command Design Pattern and I have a package [Shapes](../shapes) that follows the Factory Design Pattern. 
 
-My [Controller](../Controller) is the interlinking between the [Model](../Model) and the [View](../View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
+My [Controller](../src/Controller) is the interlinking between the [Model](../src/Model) and the [View](../src/View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
 
 ___
 ## GUI Snapshot photos:
@@ -70,16 +70,15 @@ ___
 2. Open the project in your IDE of choice.
 4. RUN static view with: ```java -jar resources/homework8.jar -in resources/buildings.txt -out resources/out.html -view web ```
 4. RUN graphical view with: ```java -jar resources/homework8.jar -in resources/buildings.txt -view graphical 800 800```
-5. Navigate to the [resources folder]() and right click open the .html file to view the output in a browser of your choice
+5. Navigate to the [resources folder](../resources) and right click open the .html file to view the output in a browser of your choice
 ___ 
 ## Links to code:
-* [Model Package](../Model)
-* [View Package](../View)
-* [Controller Package](../Controller)
-* [Commands Package](../commands)
-* [Shapes Package](../shapes)
-* [resources folder]()
-* [exceptions Package](../exceptions)
+* [Model Package](../src/Model)
+* [View Package](../src/View)
+* [Controller Package](../src/Controller)
+* [Commands Package](../src/commands)
+* [Shapes Package](../src/shapes)
+* [exceptions Package](../src/exceptions)
 
 ___ 
 
