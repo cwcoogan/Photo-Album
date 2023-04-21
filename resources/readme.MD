@@ -39,16 +39,16 @@ ___
 <!-- Create a table for the first row with 3 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="../images/defaultSnap.png" alt="Image 1" width="320"></td>
-    <td style="padding: 10px;"><img src="../images/snap2.png" alt="Image 2" width="320"></td>
-    <td style="padding: 10px;"><img src="../images/snap3.png" alt="Image 3" width="320"></td>
+    <td style="padding: 10px;"><img src="../src/images/defaultSnap.png" alt="Image 1" width="320"></td>
+    <td style="padding: 10px;"><img src="../src/images/snap2.png" alt="Image 2" width="320"></td>
+    <td style="padding: 10px;"><img src="../src/images/snap3.png" alt="Image 3" width="320"></td>
   </tr>
 </table>
 <!-- Create a table for the second row with 2 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="../images/snap4Error.png" alt="Image 4" width="480"></td>
-    <td style="padding: 10px;"><img src="../images/snap5.png" alt="Image 5" width="480"></td>
+    <td style="padding: 10px;"><img src="../src/images/snap4Error.png" alt="Image 4" width="480"></td>
+    <td style="padding: 10px;"><img src="../src/images/snap5.png" alt="Image 5" width="480"></td>
   </tr>
 </table>
 
@@ -58,9 +58,9 @@ ___
 <!-- Create a table for the first row with 3 columns -->
 <table>
   <tr>
-    <td style="padding: 10px;"><img src="../images/static1.png" alt="Image 1" width="320"></td>
-    <td style="padding: 10px;"><img src="../images/static2.png" alt="Image 2" width="320"></td>
-    <td style="padding: 10px;"><img src="../images/static3.png" alt="Image 3" width="320"></td>
+    <td style="padding: 10px;"><img src=" ../src/images/static1.png" alt="Image 1" width="320"></td>
+    <td style="padding: 10px;"><img src=" ../src/images/static2.png" alt="Image 2" width="320"></td>
+    <td style="padding: 10px;"><img src="../src/images/static3.png" alt="Image 3" width="320"></td>
   </tr>
 </table>
 
