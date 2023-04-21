@@ -18,7 +18,7 @@ I continued to work with the same Design Patterns from Part 1 of the project:
 * Factory Design Pattern
 
 I found that these Design Patterns allow my application to have deeper encapsulation, and allows my Model, Controller, and Views to have access to the Commands they need to execute the application appropriately. This approach allows my Model to focus on it's sole job: storing and managing the data in it's various states. My Controller is able to focus on mediating between the Model and the View, and it allows my view to focus on displaying the data and application to the client. I found the interconnection between each principle to be within the Controller, where the user sends a request via command line which gets processed by the Controller and the request is then sent to the Model and output by the View.
-___ 
+___        
 ## Project Updates:
 
 From Part 1 to Part 2, I added the following features:
@@ -28,7 +28,7 @@ From Part 1 to Part 2, I added the following features:
 * Added feature to Parse File Data
 * Added Command Line Arguments 
 
-I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [commands](../commands) that follows the Command Design Pattern and I have a package [Shapes](../shapes) that follows the Factory Design Pattern. 
+I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [commands](../src/commands) that follows the Command Design Pattern and I have a package [Shapes](../src/shapes) that follows the Factory Design Pattern. 
 
 My [Controller](../src/Controller) is the interlinking between the [Model](../src/Model) and the [View](../src/View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
 
