@@ -28,7 +28,7 @@ From Part 1 to Part 2, I added the following features:
 * Added feature to Parse File Data
 * Added Command Line Arguments 
 
-I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [Command](src/Command) that follows the Command Design Pattern and I have a package [Shapes](src/Shapes) that follows the Factory Design Pattern. 
+I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [command](src/commands) that follows the Command Design Pattern and I have a package [Shapes](src/shapes) that follows the Factory Design Pattern. 
 
 My [Controller](src/Controller) is the interlinking between the [Model](src/Model) and the [View](src/View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
 
