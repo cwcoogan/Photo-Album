@@ -9,7 +9,7 @@ Class: CS 5004\
 Github: [Project Link (repo private may not work)](https://github.com/cwcoogan/homework9)
 ___
 ## Project Outline:                         
-This project explores the _Controller_ and _View_ principles within the MVC design pattern. For this project, I created two views: a graphical interface built with Java Swing and the  a static HTML page. My Controller acts as the mediator between each view, and the Model. The Controller is stored in [Controller Package](src/Controller) and the View(s) are stored in [View Packages](src/View).
+This project explores the _Controller_ and _View_ principles within the MVC design pattern. For this project, I created two views: a graphical interface built with Java Swing and the  a static HTML page. My Controller acts as the mediator between each view, and the Model. The Controller is stored in [Controller Package](../Controller) and the View(s) are stored in [View Packages](../View).
 
 I continued to work with the same Design Patterns from Part 1 of the project:
 
@@ -28,9 +28,9 @@ From Part 1 to Part 2, I added the following features:
 * Added feature to Parse File Data
 * Added Command Line Arguments 
 
-I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [Command](src/Command) that follows the Command Design Pattern and I have a package [Shapes](src/Shapes) that follows the Factory Design Pattern. 
+I continued to follow the MVC, Command and Factory Design Pattern. My file structure is broken up by each respective Design Pattern. I have files for each principle across the MVC principle (Model/View/Controller Packages), I have a package [commands](../commands) that follows the Command Design Pattern and I have a package [Shapes](../shapes) that follows the Factory Design Pattern. 
 
-My [Controller](src/Controller) is the interlinking between the [Model](src/Model) and the [View](src/View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
+My [Controller](../Controller) is the interlinking between the [Model](../Model) and the [View](../View). On the graphical interface, my controller acts as the point of contact for executing the Snapshots that are sent to the View. If a user selects a snapshot, returns to the previous snapshot, or goes to the next snapshot- my Model will receive this request and then the View will display it accordingly. My Controller acts as the main point of contact where the command line arguments are processed. When users pass arguments into the CLI, the controller processes these requests, and determines if they are valid, and if so it will send the request to retrieve the data from the Model and then activate the correct view to display.
 
 ___
 ## GUI Snapshot photos:
@@ -68,20 +68,18 @@ ___
 ## How to run (JAR):
 1. Clone the repository to your local machine.
 2. Open the project in your IDE of choice.
-3. Navigate to the [resources folder](src/resources) that contains the .jar file  
-4. To run static view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -out [Your output file path] -view web ```
-4. To run graphical view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -view graphical 800 800```
-5. Navigate to the [resources folder](src/resources) and right click open the .html file to view the output in a browser of your choice
-6. 
+4. RUN static view with: ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -out src/resources/out.html -view web ```
+4. RUN graphical view with: ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -view graphical 800 800```
+5. Navigate to the [resources folder](../resources) and right click open the .html file to view the output in a browser of your choice
 ___ 
 ## Links to code:
-* [Model Package](src/Model)
-* [View Package](src/View)
-* [Controller Package](src/Controller)
-* [Commands Package](src/commands)
-* [Shapes Package](src/shapes)
-* [resources folder](src/resources)
-* [exceptions Package](src/exceptions)
+* [Model Package](../Model)
+* [View Package](../View)
+* [Controller Package](../Controller)
+* [Commands Package](../commands)
+* [Shapes Package](../shapes)
+* [resources folder](../resources)
+* [exceptions Package](../exceptions)
 
 ___ 
 
