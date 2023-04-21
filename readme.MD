@@ -68,9 +68,8 @@ ___
 ## How to run (JAR):
 1. Clone the repository to your local machine.
 2. Open the project in your IDE of choice.
-3. Navigate to the [resources folder](src/resources) that contains the .jar file  
-4. To run static view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -out [Your output file path] -view web ```
-4. To run graphical view ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -view graphical 800 800```
+4. RUN static view with: ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -out [Your output file path] -view web ```
+4. RUN graphical view with: ```java -jar src/resources/homework8.jar -in src/resources/buildings.txt -view graphical 800 800```
 5. Navigate to the [resources folder](src/resources) and right click open the .html file to view the output in a browser of your choice
 ___ 
 ## Links to code:
