@@ -1,4 +1,4 @@
-# Homework 9 - Shapes Photo Album pt 2: Controller & Views
+# Interactive Photo Album:
 ![](https://img.shields.io/badge/homework9-MVC-blue ) ![](https://img.shields.io/badge/Codestyle-Java-green)
 
 
